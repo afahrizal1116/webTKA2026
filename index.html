@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Olimpiade TKA 2026 &amp; Festival Fest 2026 | Ponpes Al Ikhlas Berbah</title>
+<meta name="description" content="Olimpiade TKA 2026 dan Festival Fest 2026 Ponpes Al Ikhlas Berbah. Baca juknis peserta dan panduan PDF di sini.">
+<meta name="theme-color" content="#06231F">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Plus+Jakarta+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#06231F;
+  --deep:#0A3A33;
+  --pine:#12574B;
+  --mint:#BFE9D6;
+  --gold:#E8B34A;
+  --gold-soft:#F6DC9B;
+  --paper:#F3F8F4;
+  --text:#E6F3EC;
+  --muted:#9CC3B4;
+  --radius:22px;
+  --display:'Bricolage Grotesque','Segoe UI',system-ui,sans-serif;
+  --body:'Plus Jakarta Sans','Segoe UI',system-ui,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  font-family:var(--body);
+  color:var(--text);
+  background:var(--ink);
+  line-height:1.7;
+  overflow-x:hidden;
+  -webkit-font-smoothing:antialiased;
+}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--gold);outline-offset:4px;border-radius:8px}
+
+/* progress bar */
+#progress{position:fixed;top:0;left:0;height:4px;width:0;background:linear-gradient(90deg,var(--gold),var(--mint));z-index:100}
+
+/* nav */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:50;
+  display:flex;justify-content:space-between;align-items:center;
+  padding:18px clamp(20px,5vw,64px);
+  transition:background .3s,padding .3s,backdrop-filter .3s;
+}
+nav.solid{background:rgba(6,35,31,.82);backdrop-filter:blur(14px);padding-top:12px;padding-bottom:12px;box-shadow:0 1px 0 rgba(191,233,214,.12)}
+.brand{font-family:var(--display);font-weight:700;font-size:1.05rem;text-decoration:none;display:flex;align-items:center;gap:10px}
+.brand svg{width:30px;height:30px}
+.links{display:flex;gap:28px;list-style:none}
+.links a{text-decoration:none;font-size:.95rem;color:var(--muted);transition:color .2s}
+.links a:hover{color:var(--gold-soft)}
+
+/* hero */
+.hero{
+  position:relative;min-height:100vh;
+  display:flex;align-items:center;
+  padding:120px clamp(20px,6vw,90px) 90px;
+  background:
+    radial-gradient(900px 600px at 78% 40%,rgba(18,87,75,.75),transparent 70%),
+    radial-gradient(600px 400px at 10% 90%,rgba(232,179,74,.12),transparent 70%),
+    linear-gradient(180deg,#06231F 0%,#082E29 100%);
+  overflow:hidden;
+}
+#stars{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
+.star-art{
+  position:absolute;right:-12vw;top:50%;
+  width:min(78vw,820px);aspect-ratio:1;
+  transform:translateY(-50%);
+  opacity:.9;pointer-events:none;
+}
+.star-art svg{width:100%;height:100%;animation:spin 140s linear infinite}
+.star-art .inner{transform-origin:center;animation:spin 90s linear infinite reverse}
+@keyframes spin{to{transform:rotate(360deg)}}
+.hero-inner{position:relative;z-index:2;max-width:760px}
+.chip{
+  display:inline-flex;align-items:center;gap:10px;
+  padding:8px 16px;border-radius:999px;
+  border:1px solid rgba(232,179,74,.45);
+  background:rgba(232,179,74,.08);
+  color:var(--gold-soft);font-size:.9rem;font-weight:500;margin-bottom:28px;
+}
+.chip i{width:8px;height:8px;border-radius:50%;background:var(--gold);box-shadow:0 0 0 0 rgba(232,179,74,.7);animation:pulse 2s infinite}
+@keyframes pulse{70%{box-shadow:0 0 0 12px rgba(232,179,74,0)}100%{box-shadow:0 0 0 0 rgba(232,179,74,0)}}
+h1{
+  font-family:var(--display);font-weight:800;
+  font-size:clamp(2.7rem,8.4vw,6.4rem);
+  line-height:.98;letter-spacing:-.035em;
+  color:#fff;
+}
+h1 .line{display:block;overflow:hidden}
+h1 .line span{display:inline-block;transform:translateY(105%);animation:rise 1s cubic-bezier(.2,.8,.2,1) forwards}
+h1 .line:nth-child(2) span{animation-delay:.12s;color:var(--gold)}
+h1 .line:nth-child(3) span{animation-delay:.24s}
+@keyframes rise{to{transform:none}}
+.sub{
+  margin-top:28px;max-width:56ch;
+  font-size:clamp(1.05rem,2vw,1.3rem);color:var(--muted);
+  opacity:0;animation:fade 1s .6s forwards;
+}
+.sub b{color:var(--text);font-weight:600}
+@keyframes fade{to{opacity:1}}
+.cta{display:flex;flex-wrap:wrap;gap:16px;margin-top:40px;opacity:0;animation:fade 1s .85s forwards}
+.btn{
+  position:relative;overflow:hidden;
+  display:inline-flex;align-items:center;gap:12px;
+  padding:17px 30px;border-radius:16px;
+  font:600 1.05rem var(--body);text-decoration:none;
+  transition:transform .2s,box-shadow .2s,background .2s;
+  isolation:isolate;
+}
+.btn svg{width:20px;height:20px;flex:none}
+.btn-gold{background:var(--gold);color:#2A1D00;box-shadow:0 10px 30px -8px rgba(232,179,74,.65)}
+.btn-gold:hover{transform:translateY(-3px);box-shadow:0 16px 38px -8px rgba(232,179,74,.8);background:#F2C25F}
+.btn-line{border:2px solid var(--mint);color:var(--mint);background:rgba(191,233,214,.06)}
+.btn-line:hover{transform:translateY(-3px);background:rgba(191,233,214,.16)}
+.btn:active{transform:translateY(0) scale(.98)}
+.ripple{position:absolute;border-radius:50%;background:rgba(255,255,255,.45);transform:scale(0);animation:rip .6s ease-out;pointer-events:none;z-index:-1}
+@keyframes rip{to{transform:scale(4);opacity:0}}
+.scroll-hint{position:absolute;bottom:28px;left:50%;transform:translateX(-50%);z-index:2;color:var(--muted);font-size:.85rem;display:flex;flex-direction:column;align-items:center;gap:8px}
+.scroll-hint span{width:22px;height:36px;border:2px solid var(--muted);border-radius:12px;position:relative}
+.scroll-hint span::after{content:"";position:absolute;left:50%;top:6px;width:4px;height:7px;margin-left:-2px;border-radius:2px;background:var(--gold);animation:wheel 1.6s infinite}
+@keyframes wheel{50%{transform:translateY(10px);opacity:.2}}
+
+/* marquee */
+.marquee{background:var(--gold);color:#2A1D00;overflow:hidden;padding:14px 0;transform:rotate(-1.2deg);margin:-14px -20px 0;position:relative;z-index:3}
+.track{display:flex;gap:48px;width:max-content;animation:slide 32s linear infinite;font-family:var(--display);font-weight:700;font-size:1.25rem}
+.track span{display:flex;align-items:center;gap:48px}
+.track span::after{content:"✦";font-size:1rem}
+@keyframes slide{to{transform:translateX(-50%)}}
+
+/* sections */
+section{padding:clamp(70px,10vw,130px) clamp(20px,6vw,90px)}
+.wrap{max-width:1120px;margin:0 auto}
+h2{
+  font-family:var(--display);font-weight:800;
+  font-size:clamp(2rem,5vw,3.6rem);line-height:1.05;letter-spacing:-.025em;
+  color:#fff;max-width:18ch;
+}
+.lead{margin-top:18px;max-width:60ch;color:var(--muted);font-size:1.1rem}
+
+/* about */
+.about{background:var(--paper);color:#0C2B26}
+.about h2{color:var(--deep)}
+.about .lead{color:#3C5E55}
+.about-grid{display:grid;grid-template-columns:1.1fr 1fr;gap:clamp(30px,6vw,80px);align-items:center}
+.pillars{display:grid;gap:16px}
+.pillar{
+  display:flex;gap:18px;align-items:flex-start;
+  padding:22px 24px;border-radius:var(--radius);
+  background:#fff;border:1px solid #D6E7DD;
+  transition:transform .25s,border-color .25s;
+}
+.pillar:hover{transform:translateX(8px);border-color:var(--pine)}
+.pillar .ico{flex:none;width:52px;height:52px;border-radius:16px;background:var(--deep);display:grid;place-items:center}
+.pillar .ico svg{width:26px;height:26px;stroke:var(--gold);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.pillar h3{font-family:var(--display);font-size:1.2rem;color:var(--deep);line-height:1.25;margin-bottom:4px}
+.pillar p{font-size:.98rem;color:#486B61;line-height:1.6}
+
+/* event cards */
+.events{background:linear-gradient(180deg,var(--deep),var(--ink))}
+.cards{display:grid;grid-template-columns:1fr 1fr;gap:28px;margin-top:56px}
+.card{
+  position:relative;overflow:hidden;
+  padding:clamp(28px,4vw,46px);border-radius:30px;
+  border:1px solid rgba(191,233,214,.18);
+  background:linear-gradient(160deg,rgba(18,87,75,.55),rgba(6,35,31,.6));
+  transition:transform .3s,border-color .3s;
+}
+.card:hover{transform:translateY(-6px);border-color:rgba(232,179,74,.6)}
+.card.alt{background:linear-gradient(160deg,rgba(232,179,74,.16),rgba(6,35,31,.6))}
+.card .glyph{position:absolute;right:-40px;top:-40px;width:200px;height:200px;opacity:.14;color:var(--gold)}
+.card h3{font-family:var(--display);font-size:clamp(1.7rem,3vw,2.3rem);line-height:1.1;color:#fff;margin-bottom:14px;letter-spacing:-.02em}
+.card p{color:var(--muted);margin-bottom:22px}
+.card ul{list-style:none;display:grid;gap:10px}
+.card li{display:flex;gap:12px;align-items:flex-start;font-size:.98rem}
+.card li svg{flex:none;width:20px;height:20px;margin-top:4px;stroke:var(--gold);fill:none;stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round}
+
+/* steps */
+.steps{background:var(--ink)}
+.timeline{position:relative;margin-top:60px;display:grid;gap:30px}
+.timeline::before{content:"";position:absolute;left:31px;top:10px;bottom:10px;width:2px;background:linear-gradient(var(--gold),rgba(232,179,74,0))}
+.step{position:relative;display:grid;grid-template-columns:64px 1fr;gap:26px;align-items:start}
+.num{
+  width:64px;height:64px;border-radius:50%;
+  display:grid;place-items:center;
+  font:800 1.5rem var(--display);
+  color:#2A1D00;background:var(--gold);
+  box-shadow:0 0 0 8px var(--ink);position:relative;z-index:1;
+}
+.step .body{padding:10px 0 6px}
+.step h3{font-family:var(--display);font-size:1.5rem;color:#fff;margin-bottom:6px}
+.step p{color:var(--muted);max-width:58ch}
+.step a{color:var(--gold-soft);font-weight:600;text-underline-offset:4px}
+
+/* faq */
+.faq{background:var(--deep)}
+.faq-list{margin-top:48px;max-width:820px;display:grid;gap:14px}
+.qa{border:1px solid rgba(191,233,214,.18);border-radius:18px;background:rgba(6,35,31,.45);overflow:hidden;transition:border-color .25s}
+.qa.open{border-color:rgba(232,179,74,.55)}
+.qa button{
+  width:100%;text-align:left;cursor:pointer;
+  display:flex;justify-content:space-between;align-items:center;gap:20px;
+  padding:22px 26px;background:none;border:0;color:#fff;
+  font:600 1.1rem var(--body);
+}
+.qa .plus{flex:none;width:30px;height:30px;border-radius:50%;background:rgba(232,179,74,.16);position:relative;transition:transform .3s,background .3s}
+.qa .plus::before,.qa .plus::after{content:"";position:absolute;left:50%;top:50%;width:12px;height:2px;margin:-1px 0 0 -6px;background:var(--gold)}
+.qa .plus::after{transform:rotate(90deg);transition:transform .3s}
+.qa.open .plus{transform:rotate(180deg);background:var(--gold)}
+.qa.open .plus::before,.qa.open .plus::after{background:#2A1D00}
+.qa.open .plus::after{transform:rotate(0)}
+.ans{max-height:0;overflow:hidden;transition:max-height .4s ease}
+.ans p{padding:0 26px 24px;color:var(--muted);max-width:62ch}
+
+/* final cta */
+.final{
+  text-align:center;position:relative;overflow:hidden;
+  background:radial-gradient(700px 420px at 50% 0%,rgba(232,179,74,.22),transparent 70%),var(--ink);
+}
+.final h2{margin:0 auto;max-width:16ch}
+.final .lead{margin-left:auto;margin-right:auto}
+.final .cta{justify-content:center;opacity:1;animation:none}
+
+footer{
+  padding:44px clamp(20px,6vw,90px);
+  border-top:1px solid rgba(191,233,214,.14);
+  background:#041A17;color:var(--muted);font-size:.95rem;
+}
+.foot{max-width:1120px;margin:0 auto;display:flex;flex-wrap:wrap;gap:16px;justify-content:space-between;align-items:center}
+.foot strong{color:#fff;font-family:var(--display)}
+
+#top{
+  position:fixed;right:22px;bottom:22px;z-index:60;
+  width:52px;height:52px;border-radius:50%;border:0;cursor:pointer;
+  background:var(--gold);color:#2A1D00;display:grid;place-items:center;
+  box-shadow:0 10px 26px -6px rgba(0,0,0,.6);
+  opacity:0;pointer-events:none;transform:translateY(14px);transition:.3s;
+}
+#top.show{opacity:1;pointer-events:auto;transform:none}
+#top svg{width:22px;height:22px;stroke:currentColor;fill:none;stroke-width:2.6;stroke-linecap:round;stroke-linejoin:round}
+
+/* reveal */
+.rv{opacity:0;transform:translateY(26px);transition:opacity .7s ease,transform .7s ease}
+.rv.in{opacity:1;transform:none}
+
+@media (max-width:860px){
+  .links{display:none}
+  .about-grid,.cards{grid-template-columns:1fr}
+  .star-art{right:-38vw;opacity:.45}
+  .scroll-hint{display:none}
+  .btn{width:100%;justify-content:center}
+}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}
+  h1 .line span{transform:none}
+  .sub,.cta{opacity:1}
+  .rv{opacity:1;transform:none}
+}
+</style>
+</head>
+<body>
+<div id="progress"></div>
+
+<nav id="nav">
+  <a href="#home" class="brand" aria-label="Beranda">
+    <svg viewBox="0 0 100 100" aria-hidden="true"><polygon points="50,4 61,30 89,22 74,47 96,66 66,69 62,97 50,74 38,97 34,69 4,66 26,47 11,22 39,30" fill="#E8B34A"/><circle cx="50" cy="50" r="13" fill="#06231F"/></svg>
+    Fest 2026
+  </a>
+  <ul class="links">
+    <li><a href="#tentang">Tentang</a></li>
+    <li><a href="#acara">Acara</a></li>
+    <li><a href="#langkah">Langkah</a></li>
+    <li><a href="#faq">Tanya jawab</a></li>
+  </ul>
+</nav>
+
+<header class="hero" id="home">
+  <canvas id="stars" aria-hidden="true"></canvas>
+  <div class="star-art" aria-hidden="true">
+    <svg viewBox="0 0 400 400" fill="none" stroke="#E8B34A" stroke-width="1.2">
+      <g opacity=".9">
+        <polygon points="200,10 244,70 318,52 316,128 390,156 336,212 372,278 298,288 276,360 214,320 168,384 140,312 66,314 84,240 20,200 78,152 54,80 130,86"/>
+        <circle cx="200" cy="200" r="150" stroke-opacity=".5"/>
+        <circle cx="200" cy="200" r="190" stroke-opacity=".25"/>
+      </g>
+      <g class="inner" stroke="#BFE9D6" stroke-opacity=".7">
+        <rect x="90" y="90" width="220" height="220"/>
+        <rect x="90" y="90" width="220" height="220" transform="rotate(45 200 200)"/>
+        <circle cx="200" cy="200" r="70"/>
+        <circle cx="200" cy="200" r="35" stroke="#E8B34A"/>
+      </g>
+    </svg>
+  </div>
+
+  <div class="hero-inner">
+    <div class="chip"><i></i> Ponpes Al Ikhlas Berbah</div>
+    <h1>
+      <span class="line"><span>Olimpiade</span></span>
+      <span class="line"><span>TKA 2026</span></span>
+      <span class="line"><span>Festival Fest 2026</span></span>
+    </h1>
+    <p class="sub">Ajang adu kemampuan akademik dan perayaan kreativitas santri. <b>Baca juknis dan panduan lebih dulu</b>, supaya persiapan peserta berjalan lancar.</p>
+    <div class="cta">
+      <a class="btn btn-gold" href="https://docs.google.com/forms/d/e/1FAIpQLSd-zxIeQo-WvwHyUC0_aW-w7fbCiyR8ObbN00Kfblr5mZVjNg/viewform?usp=dialog" target="_blank" rel="noopener noreferrer">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5a2 2 0 0 1 2-2h9l5 5v11a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2z"/><path d="M14 3v6h6M8 13h8M8 17h5"/></svg>
+        Baca juknis peserta
+      </a>
+      <a class="btn btn-line" href="https://docs.google.com/forms/d/e/1FAIpQLScyqwiRfcju2okpu6BEdf9LeNkmW9XRQtmLvMnqirKP48V_ow/viewform?usp=dialog" target="_blank" rel="noopener noreferrer">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12m0 0-4-4m4 4 4-4M5 21h14"/></svg>
+        Baca panduan PDF
+      </a>
+    </div>
+  </div>
+  <div class="scroll-hint"><span></span>Gulir ke bawah</div>
+</header>
+
+<div class="marquee" aria-hidden="true">
+  <div class="track">
+    <span>Olimpiade TKA 2026</span><span>Festival Fest 2026</span><span>Ponpes Al Ikhlas Berbah</span><span>Berilmu, berakhlak, berprestasi</span>
+    <span>Olimpiade TKA 2026</span><span>Festival Fest 2026</span><span>Ponpes Al Ikhlas Berbah</span><span>Berilmu, berakhlak, berprestasi</span>
+  </div>
+</div>
+
+<section class="about" id="tentang">
+  <div class="wrap about-grid">
+    <div class="rv">
+      <h2>Satu panggung untuk ilmu dan karya santri</h2>
+      <p class="lead">Olimpiade TKA menguji kemampuan akademik peserta, sedangkan Festival Fest memberi ruang bagi bakat dan kreativitas. Keduanya digelar Ponpes Al Ikhlas Berbah pada tahun 2026.</p>
+    </div>
+    <div class="pillars">
+      <div class="pillar rv">
+        <div class="ico"><svg viewBox="0 0 24 24"><path d="M4 19V5a2 2 0 0 1 2-2h13v16H6a2 2 0 0 0-2 2z"/><path d="M8 7h7M8 11h5"/></svg></div>
+        <div><h3>Kompetisi akademik</h3><p>Peserta menunjukkan penguasaan materi lewat Olimpiade TKA yang terstruktur dan adil.</p></div>
+      </div>
+      <div class="pillar rv">
+        <div class="ico"><svg viewBox="0 0 24 24"><path d="m12 3 2.6 5.6 6.1.7-4.5 4.2 1.2 6L12 16.5 6.6 19.5l1.2-6L3.3 9.3l6.1-.7z"/></svg></div>
+        <div><h3>Panggung kreativitas</h3><p>Festival Fest mengumpulkan santri, guru, dan tamu dalam suasana yang meriah.</p></div>
+      </div>
+      <div class="pillar rv">
+        <div class="ico"><svg viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.9M16 3.1a4 4 0 0 1 0 7.8"/></svg></div>
+        <div><h3>Kebersamaan</h3><p>Persahabatan antarpeserta dan antarsekolah tumbuh lewat satu agenda bersama.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="events" id="acara">
+  <div class="wrap">
+    <div class="rv">
+      <h2>Dua acara, satu semangat</h2>
+      <p class="lead">Informasi lengkap tersedia di juknis dan panduan PDF. Jadwal dan rincian teknis mengikuti pengumuman resmi panitia.</p>
+    </div>
+    <div class="cards">
+      <article class="card rv">
+        <svg class="glyph" viewBox="0 0 100 100" fill="currentColor" aria-hidden="true"><polygon points="50,4 61,30 89,22 74,47 96,66 66,69 62,97 50,74 38,97 34,69 4,66 26,47 11,22 39,30"/></svg>
+        <h3>Olimpiade TKA 2026</h3>
+        <p>Tes kemampuan akademik untuk peserta yang siap bersaing secara sportif.</p>
+        <ul>
+          <li><svg viewBox="0 0 24 24"><path d="m5 12 5 5L20 7"/></svg>Aturan peserta dijelaskan di juknis</li>
+          <li><svg viewBox="0 0 24 24"><path d="m5 12 5 5L20 7"/></svg>Panduan pelaksanaan tersedia dalam PDF</li>
+          <li><svg viewBox="0 0 24 24"><path d="m5 12 5 5L20 7"/></svg>Informasi terbaru lewat panitia</li>
+        </ul>
+      </article>
+      <article class="card alt rv">
+        <svg class="glyph" viewBox="0 0 100 100" fill="currentColor" aria-hidden="true"><polygon points="50,4 61,30 89,22 74,47 96,66 66,69 62,97 50,74 38,97 34,69 4,66 26,47 11,22 39,30"/></svg>
+        <h3>Festival Fest 2026</h3>
+        <p>Perayaan karya dan bakat santri Ponpes Al Ikhlas Berbah.</p>
+        <ul>
+          <li><svg viewBox="0 0 24 24"><path d="m5 12 5 5L20 7"/></svg>Terbuka untuk peserta yang terdaftar</li>
+          <li><svg viewBox="0 0 24 24"><path d="m5 12 5 5L20 7"/></svg>Ketentuan lomba ada di juknis</li>
+          <li><svg viewBox="0 0 24 24"><path d="m5 12 5 5L20 7"/></svg>Suasana meriah bersama keluarga besar pondok</li>
+        </ul>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="steps" id="langkah">
+  <div class="wrap">
+    <div class="rv">
+      <h2>Tiga langkah menyiapkan diri</h2>
+      <p class="lead">Ikuti urutan ini agar tidak ada informasi yang terlewat.</p>
+    </div>
+    <div class="timeline">
+      <div class="step rv">
+        <div class="num">1</div>
+        <div class="body"><h3>Baca juknis peserta</h3><p>Pahami aturan, ketentuan, dan alur kegiatan. <a href="https://docs.google.com/forms/d/e/1FAIpQLSd-zxIeQo-WvwHyUC0_aW-w7fbCiyR8ObbN00Kfblr5mZVjNg/viewform?usp=dialog" target="_blank" rel="noopener noreferrer">Buka juknis</a></p></div>
+      </div>
+      <div class="step rv">
+        <div class="num">2</div>
+        <div class="body"><h3>Baca panduan PDF</h3><p>Pelajari panduan pelaksanaan secara lengkap sebelum hari acara. <a href="https://docs.google.com/forms/d/e/1FAIpQLScyqwiRfcju2okpu6BEdf9LeNkmW9XRQtmLvMnqirKP48V_ow/viewform?usp=dialog" target="_blank" rel="noopener noreferrer">Buka panduan</a></p></div>
+      </div>
+      <div class="step rv">
+        <div class="num">3</div>
+        <div class="body"><h3>Ikuti arahan panitia</h3><p>Pantau pengumuman resmi untuk jadwal dan pembaruan terbaru.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="faq" id="faq">
+  <div class="wrap">
+    <div class="rv">
+      <h2>Pertanyaan yang sering muncul</h2>
+    </div>
+    <div class="faq-list">
+      <div class="qa rv">
+        <button type="button" aria-expanded="false"><span>Di mana saya membaca aturan peserta?</span><i class="plus"></i></button>
+        <div class="ans"><p>Tekan tombol “Baca juknis peserta” di bagian atas atau bawah halaman ini. Tautannya terbuka di tab baru.</p></div>
+      </div>
+      <div class="qa rv">
+        <button type="button" aria-expanded="false"><span>Di mana saya menemukan panduan PDF?</span><i class="plus"></i></button>
+        <div class="ans"><p>Tekan tombol “Baca panduan PDF”. Panduan berisi penjelasan pelaksanaan kegiatan secara lengkap.</p></div>
+      </div>
+      <div class="qa rv">
+        <button type="button" aria-expanded="false"><span>Bagaimana mengetahui jadwal terbaru?</span><i class="plus"></i></button>
+        <div class="ans"><p>Pantau pengumuman resmi dari panitia Ponpes Al Ikhlas Berbah. Jika ada perubahan, informasi akan disampaikan lewat kanal resmi tersebut.</p></div>
+      </div>
+      <div class="qa rv">
+        <button type="button" aria-expanded="false"><span>Apakah halaman ini bisa dibuka lewat ponsel?</span><i class="plus"></i></button>
+        <div class="ans"><p>Bisa. Tampilan halaman menyesuaikan layar ponsel, tablet, dan komputer.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="final">
+  <div class="wrap">
+    <h2 class="rv">Siap ikut Olimpiade TKA 2026?</h2>
+    <p class="lead rv">Mulai dari juknis dan panduan. Semua yang perlu peserta ketahui ada di dua tautan berikut.</p>
+    <div class="cta rv">
+      <a class="btn btn-gold" href="https://docs.google.com/forms/d/e/1FAIpQLSd-zxIeQo-WvwHyUC0_aW-w7fbCiyR8ObbN00Kfblr5mZVjNg/viewform?usp=dialog" target="_blank" rel="noopener noreferrer">Baca juknis peserta</a>
+      <a class="btn btn-line" href="https://docs.google.com/forms/d/e/1FAIpQLScyqwiRfcju2okpu6BEdf9LeNkmW9XRQtmLvMnqirKP48V_ow/viewform?usp=dialog" target="_blank" rel="noopener noreferrer">Baca panduan PDF</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="foot">
+    <div><strong>Olimpiade TKA 2026 &amp; Festival Fest 2026</strong><br>Ponpes Al Ikhlas Berbah, Sleman, Yogyakarta</div>
+    <div>© <span id="year">2026</span> Panitia. Hak cipta dilindungi.</div>
+  </div>
+</footer>
+
+<button id="top" type="button" aria-label="Kembali ke atas">
+  <svg viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg>
+</button>
+
+<script>
+(function(){
+  'use strict';
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* tahun footer */
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  /* progress bar, nav, tombol ke atas */
+  var bar = document.getElementById('progress');
+  var nav = document.getElementById('nav');
+  var topBtn = document.getElementById('top');
+  function onScroll(){
+    var h = document.documentElement;
+    var max = h.scrollHeight - h.clientHeight;
+    bar.style.width = (max > 0 ? (h.scrollTop / max) * 100 : 0) + '%';
+    nav.classList.toggle('solid', h.scrollTop > 40);
+    topBtn.classList.toggle('show', h.scrollTop > 600);
+  }
+  window.addEventListener('scroll', onScroll, {passive:true});
+  onScroll();
+  topBtn.addEventListener('click', function(){
+    window.scrollTo({top:0, behavior: reduce ? 'auto' : 'smooth'});
+  });
+
+  /* muncul saat digulir */
+  var items = document.querySelectorAll('.rv');
+  if('IntersectionObserver' in window && !reduce){
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if(e.isIntersecting){
+          e.target.classList.add('in');
+          io.unobserve(e.target);
+        }
+      });
+    }, {threshold:.15});
+    items.forEach(function(el, i){
+      el.style.transitionDelay = ((i % 4) * 70) + 'ms';
+      io.observe(el);
+    });
+  } else {
+    items.forEach(function(el){ el.classList.add('in'); });
+  }
+
+  /* tanya jawab */
+  document.querySelectorAll('.qa').forEach(function(qa){
+    var btn = qa.querySelector('button');
+    var ans = qa.querySelector('.ans');
+    btn.addEventListener('click', function(){
+      var open = qa.classList.toggle('open');
+      btn.setAttribute('aria-expanded', open);
+      ans.style.maxHeight = open ? ans.scrollHeight + 'px' : '0px';
+    });
+  });
+
+  /* efek riak pada tombol */
+  document.querySelectorAll('.btn').forEach(function(b){
+    b.addEventListener('click', function(ev){
+      if(reduce) return;
+      var r = b.getBoundingClientRect();
+      var size = Math.max(r.width, r.height);
+      var s = document.createElement('span');
+      s.className = 'ripple';
+      s.style.width = s.style.height = size + 'px';
+      s.style.left = (ev.clientX - r.left - size/2) + 'px';
+      s.style.top = (ev.clientY - r.top - size/2) + 'px';
+      b.appendChild(s);
+      setTimeout(function(){ s.remove(); }, 650);
+    });
+  });
+
+  /* bintang berkelip di hero */
+  var cv = document.getElementById('stars');
+  if(cv && !reduce){
+    var ctx = cv.getContext('2d');
+    var stars = [], W, H, raf;
+    function size(){
+      var d = window.devicePixelRatio || 1;
+      W = cv.clientWidth; H = cv.clientHeight;
+      cv.width = W * d; cv.height = H * d;
+      ctx.setTransform(d,0,0,d,0,0);
+      var n = Math.min(110, Math.floor(W * H / 12000));
+      stars = [];
+      for(var i = 0; i < n; i++){
+        stars.push({
+          x: Math.random() * W,
+          y: Math.random() * H,
+          r: Math.random() * 1.4 + .3,
+          p: Math.random() * Math.PI * 2,
+          v: Math.random() * .02 + .008
+        });
+      }
+    }
+    function draw(){
+      ctx.clearRect(0,0,W,H);
+      for(var i = 0; i < stars.length; i++){
+        var s = stars[i];
+        s.p += s.v;
+        var a = .25 + Math.abs(Math.sin(s.p)) * .7;
+        ctx.beginPath();
+        ctx.arc(s.x, s.y, s.r, 0, 6.2832);
+        ctx.fillStyle = 'rgba(246,220,155,' + a.toFixed(2) + ')';
+        ctx.fill();
+      }
+      raf = requestAnimationFrame(draw);
+    }
+    size(); draw();
+    window.addEventListener('resize', size);
+    document.addEventListener('visibilitychange', function(){
+      if(document.hidden){ cancelAnimationFrame(raf); } else { draw(); }
+    });
+  }
+})();
+</script>
+</body>
+</html>
