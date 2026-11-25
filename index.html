@@ -400,6 +400,7 @@ html[data-cursor="cincin"] *,html[data-cursor="bintang"] *,html[data-cursor="jej
 /* ===== sambutan untuk peserta ===== */
 .sambutan{position:relative;overflow:hidden;background:radial-gradient(900px 520px at 12% 20%,rgba(var(--pine-rgb),.5),transparent 70%),linear-gradient(180deg,var(--ink),var(--ink2))}
 .sambutan::before{content:"";position:absolute;inset:0;background-image:var(--kawung);opacity:.16;-webkit-mask-image:radial-gradient(ellipse at 8% 85%,#000,transparent 65%);mask-image:radial-gradient(ellipse at 8% 85%,#000,transparent 65%);pointer-events:none}
+.sambutan{padding-bottom:clamp(120px,17vw,220px)}
 .sambutan .wrap{position:relative;z-index:1}
 .samb-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(30px,6vw,80px);align-items:center}
 .samb-text h2{max-width:14ch}
@@ -413,6 +414,7 @@ html[data-cursor="cincin"] *,html[data-cursor="bintang"] *,html[data-cursor="jej
 
 /* ===== piala ===== */
 .stage{position:relative;width:100%;max-width:460px;aspect-ratio:1;margin:0 auto;cursor:pointer;transition:opacity 1s ease,transform 1.3s cubic-bezier(.2,.9,.2,1)}
+.stage.on{opacity:1;transform:none}
 .stage svg{width:100%;height:100%;overflow:visible;display:block}
 .stage.pop svg{animation:pop .7s ease}
 @keyframes pop{30%{transform:scale(1.07) rotate(-2deg)}60%{transform:scale(.98) rotate(1deg)}}
@@ -433,6 +435,47 @@ html[data-cursor="cincin"] *,html[data-cursor="bintang"] *,html[data-cursor="jej
 @media (prefers-reduced-motion:reduce){
 }
 
+/* ===== siluet joglo ===== */
+.skyline,.joglo{position:absolute;left:0;right:0;bottom:0;pointer-events:none;z-index:0;overflow:hidden}
+.skyline{height:clamp(150px,24vw,300px)}
+.joglo{height:clamp(130px,20vw,260px)}
+.sk-layer{position:absolute;left:0;bottom:0;width:100%;height:100%;fill:var(--gold);display:block}
+.sk-layer.far{opacity:.10}
+.sk-layer.near{opacity:.19}
+.joglo .sk-layer.far{opacity:.07}
+.joglo .sk-layer.near{opacity:.13}
+.skyline::after,.joglo::after{content:"";position:absolute;left:0;right:0;bottom:0;height:3px;background:linear-gradient(90deg,transparent,rgba(var(--gold-rgb),.55),transparent)}
+.joglo .sk-layer{transform:translateY(46px);opacity:0;animation:skrise 1.6s cubic-bezier(.2,.8,.2,1) forwards}
+.joglo .sk-layer.far{animation-delay:.3s;--o:.07}
+.joglo .sk-layer.near{animation-delay:.6s;--o:.13}
+@keyframes skrise{to{transform:none;opacity:var(--o)}}
+
+/* ===== animasi sambutan (hanya aktif bila JS siap; aman bila gagal) ===== */
+.sambutan.anim .samb-head{opacity:0;transform:translateY(26px);transition:opacity .8s ease .15s,transform .8s ease .15s}
+.sambutan.anim.in .samb-head{opacity:1;transform:none}
+.sambutan.anim .letter{opacity:0;transform:translateY(30px);transition:opacity .8s ease .3s,transform .8s ease .3s}
+.sambutan.anim.in .letter{opacity:1;transform:none}
+.sambutan.anim .letter-band{transform:scaleX(0);transform-origin:left;transition:transform 1.2s cubic-bezier(.2,.8,.2,1) .5s}
+.sambutan.anim .letter-band.ceplok{transform-origin:right}
+.sambutan.anim.in .letter-band{transform:none}
+.letter.split .w{display:inline-block;opacity:0;transform:translateY(.6em);filter:blur(3px);transition:opacity .6s ease var(--d),transform .7s cubic-bezier(.2,.8,.2,1) var(--d),filter .6s ease var(--d)}
+.sambutan.in .letter.split .w{opacity:1;transform:none;filter:none}
+.sambutan.anim .stage:not(.on){opacity:0;transform:translateY(40px) scale(.92)}
+.sambutan.anim .sk-layer{transform:translateY(60px);opacity:0;transition:transform 1.6s cubic-bezier(.2,.8,.2,1),opacity 1.4s ease}
+.sambutan.anim .sk-layer.far{transition-delay:.2s}
+.sambutan.anim .sk-layer.near{transition-delay:.5s}
+.sambutan.anim.in .sk-layer{transform:none}
+.sambutan.anim.in .sk-layer.far{opacity:.10}
+.sambutan.anim.in .sk-layer.near{opacity:.19}
+@media (prefers-reduced-motion:reduce){
+  .sambutan.anim .samb-head,.sambutan.anim .letter,.sambutan.anim .stage:not(.on){opacity:1;transform:none}
+  .letter.split .w{opacity:1;transform:none;filter:none}
+  .sambutan.anim .letter-band{transform:none}
+  .joglo .sk-layer{animation:none;transform:none;opacity:var(--o,.1)}
+  .sambutan.anim .sk-layer{transform:none}
+  .sambutan.anim .sk-layer.far{opacity:.10}.sambutan.anim .sk-layer.near{opacity:.19}
+}
+
 /* ===== responsif (gabungan) ===== */
 @media (max-width:860px){
   .dock{left:12px;bottom:12px}
@@ -443,6 +486,7 @@ html[data-cursor="cincin"] *,html[data-cursor="bintang"] *,html[data-cursor="jej
 </style>
 </head>
 <body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false"><defs><symbol id="joglo" viewBox="0 0 600 150"><path d="M30 150v-10h540v10z"/><path d="M60 88h480v6H60z"/><path d="M80 94h8v46h-8zM150 94h8v46h-8zM220 94h8v46h-8zM292 94h8v46h-8zM362 94h8v46h-8zM432 94h8v46h-8zM512 94h8v46h-8z"/><path d="M10 92C70 90 90 74 120 62h360c30 12 50 28 110 30z"/><path d="M150 62c25-10 40-20 60-28h180c20 8 35 18 60 28z"/><path d="M230 34c20-10 40-20 55-26h30c15 6 35 16 55 26z"/><path d="M296 8l4-8 4 8z"/></symbol></defs></svg>
 <div id="progress"></div>
 
 <nav id="nav">
@@ -463,6 +507,7 @@ html[data-cursor="cincin"] *,html[data-cursor="bintang"] *,html[data-cursor="jej
 
 <header class="hero" id="home">
   <canvas id="meteors" aria-hidden="true"></canvas>
+  <div class="joglo" aria-hidden="true"><svg class="sk-layer far" viewBox="0 0 1800 300" preserveAspectRatio="xMidYMax slice"><use href="#joglo" x="260" y="240" width="240" height="60"/><use href="#joglo" x="1100" y="235" width="260" height="65"/><use href="#joglo" x="1560" y="245" width="220" height="55"/><use href="#joglo" x="-20" y="245" width="220" height="55"/></svg><svg class="sk-layer near" viewBox="0 0 1800 300" preserveAspectRatio="xMidYMax slice"><use href="#joglo" x="-60" y="195" width="420" height="105"/><use href="#joglo" x="560" y="125" width="700" height="175"/><use href="#joglo" x="1350" y="185" width="460" height="115"/></svg></div>
   <div class="star-art" aria-hidden="true">
     <svg viewBox="0 0 400 400" fill="none" stroke="#E8B34A" stroke-width="1.2">
       <g opacity=".9">
@@ -506,6 +551,7 @@ html[data-cursor="cincin"] *,html[data-cursor="bintang"] *,html[data-cursor="jej
 </div>
 
 <section class="sambutan" id="sambutan">
+  <div class="skyline" aria-hidden="true"><svg class="sk-layer far" viewBox="0 0 1800 300" preserveAspectRatio="xMidYMax slice"><use href="#joglo" x="-40" y="225" width="300" height="75"/><use href="#joglo" x="230" y="240" width="240" height="60"/><use href="#joglo" x="450" y="218" width="330" height="82"/><use href="#joglo" x="760" y="235" width="260" height="65"/><use href="#joglo" x="1010" y="215" width="340" height="85"/><use href="#joglo" x="1300" y="238" width="250" height="62"/><use href="#joglo" x="1520" y="220" width="320" height="80"/><use href="#joglo" x="1700" y="235" width="260" height="65"/></svg><svg class="sk-layer near" viewBox="0 0 1800 300" preserveAspectRatio="xMidYMax slice"><use href="#joglo" x="-120" y="160" width="560" height="140"/><use href="#joglo" x="380" y="195" width="420" height="105"/><use href="#joglo" x="760" y="150" width="600" height="150"/><use href="#joglo" x="1250" y="190" width="440" height="110"/><use href="#joglo" x="1480" y="160" width="560" height="140"/></svg></div>
   <div class="wrap samb-grid">
     <div class="stage" id="stage" role="button" tabindex="0" aria-label="Piala juara. Tekan untuk percikan bintang">
       <svg viewBox="0 0 400 400" aria-hidden="true">
@@ -542,7 +588,7 @@ html[data-cursor="cincin"] *,html[data-cursor="bintang"] *,html[data-cursor="jej
       </svg>
     </div>
     <div class="samb-text">
-      <div>
+      <div class="samb-head">
         <p class="eyebrow">Sambutan untuk peserta</p>
         <h2>Selamat datang, para calon juara</h2>
       </div>
@@ -1106,6 +1152,31 @@ html[data-cursor="cincin"] *,html[data-cursor="bintang"] *,html[data-cursor="jej
     });
   });
 
+
+  /* sambutan: kata muncul bertahap, piala dan siluet joglo naik saat terlihat */
+  var sambEl = document.getElementById('sambutan');
+  var letter = document.querySelector('.letter');
+  if(sambEl && !reduce){
+    if(letter){
+      var wn = 0;
+      letter.querySelectorAll('p').forEach(function(p){
+        var words = p.textContent.trim().split(/\s+/);
+        p.textContent = '';
+        words.forEach(function(w, i){
+          var sp = document.createElement('span');
+          sp.className = 'w';
+          sp.style.setProperty('--d', (.7 + wn * .035).toFixed(2) + 's');
+          sp.textContent = w;
+          p.appendChild(sp);
+          if(i < words.length - 1) p.appendChild(document.createTextNode(' '));
+          wn++;
+        });
+      });
+      letter.classList.add('split');
+    }
+    sambEl.classList.add('anim');
+  }
+
   /* piala: muncul, berkilau, dan memercik bintang */
   var stage = document.getElementById('stage');
   function confetti(){
@@ -1150,6 +1221,24 @@ html[data-cursor="cincin"] *,html[data-cursor="bintang"] *,html[data-cursor="jej
       if(ev.key === 'Enter' || ev.key === ' '){ ev.preventDefault(); confetti(); }
     });
   }
+  /* pemicu sambutan: beberapa jalur sekaligus agar pasti tampil */
+  function sambReveal(){
+    if(!sambEl || sambEl.classList.contains('in')) return;
+    sambEl.classList.add('in');
+    showStage();
+    clearInterval(sambTimer);
+  }
+  function sambCheck(){
+    if(!sambEl) return;
+    var r = sambEl.getBoundingClientRect();
+    if(r.top < window.innerHeight * .7 && r.bottom > 0) sambReveal();
+  }
+  var sambTimer = setInterval(sambCheck, 600);
+  window.addEventListener('scroll', sambCheck, {passive:true});
+  window.addEventListener('load', sambCheck);
+  window.addEventListener('resize', sambCheck);
+  setTimeout(sambReveal, 15000);
+  sambCheck();
 })();
 </script>
 </body>
