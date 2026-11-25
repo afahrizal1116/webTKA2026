@@ -50,9 +50,9 @@ nav{
   position:fixed;top:0;left:0;right:0;z-index:50;
   display:flex;justify-content:space-between;align-items:center;
   padding:18px clamp(20px,5vw,64px);
-  transition:background .3s,padding .3s,backdrop-filter .3s;
+  transition:background .3s,padding .3s;
 }
-nav.solid{background:rgba(var(--ink-rgb),.82);backdrop-filter:blur(14px);padding-top:12px;padding-bottom:12px;box-shadow:0 1px 0 rgba(var(--mint-rgb),.12)}
+nav.solid{background:rgba(var(--ink-rgb),.95);padding-top:12px;padding-bottom:12px;box-shadow:0 1px 0 rgba(var(--mint-rgb),.12)}
 .brand{font-family:var(--display);font-weight:700;font-size:1.05rem;text-decoration:none;display:flex;align-items:center;gap:10px}
 .brand svg{width:30px;height:30px}
 .links{display:flex;gap:28px;list-style:none}
@@ -76,8 +76,8 @@ nav.solid{background:rgba(var(--ink-rgb),.82);backdrop-filter:blur(14px);padding
   transform:translate(var(--px,0px),calc(-50% + var(--py,0px)));transition:transform .4s ease-out;
   opacity:.9;pointer-events:none;
 }
-.star-art svg{width:100%;height:100%;stroke:var(--gold);animation:spin 140s linear infinite}
-.star-art .inner{transform-origin:center;animation:spin 90s linear infinite reverse;stroke:var(--mint)}
+.star-art svg{position:absolute;inset:0;width:100%;height:100%;stroke:var(--gold);animation:spin 140s linear infinite;will-change:transform}
+.star-art .inner-svg{stroke:var(--mint);animation:spin 90s linear infinite reverse}
 @keyframes spin{to{transform:rotate(360deg)}}
 .hero-inner{position:relative;z-index:2;max-width:760px}
 .chip{
@@ -271,8 +271,8 @@ footer{
 .final::before{content:"";position:absolute;inset:0;background-image:var(--kawung);opacity:.16;-webkit-mask-image:radial-gradient(ellipse at 50% 0%,#000,transparent 75%);mask-image:radial-gradient(ellipse at 50% 0%,#000,transparent 75%);pointer-events:none}
 .final .wrap{position:relative;z-index:1}
 .batik-band{position:relative;height:46px;background:var(--deep);border-top:2px solid var(--gold);border-bottom:2px solid var(--gold);box-shadow:inset 0 6px 0 var(--sogan),inset 0 -6px 0 var(--sogan);overflow:hidden}
-.batik-band::before{content:"";position:absolute;inset:0;background-image:var(--parang);background-size:34px 34px;opacity:1;animation:drift 40s linear infinite}
-@keyframes drift{to{background-position:-340px 0}}
+.batik-band::before{content:"";position:absolute;top:0;bottom:0;left:0;right:-340px;background-image:var(--parang);background-size:34px 34px;opacity:1;animation:drift 40s linear infinite;will-change:transform}
+@keyframes drift{to{transform:translate3d(-340px,0,0)}}
 @keyframes shimmer{to{background-position:-220% 0}}
 
 /* ===== tambahan interaksi ===== */
@@ -392,10 +392,10 @@ html[data-cursor="cincin"] *,html[data-cursor="bintang"] *,html[data-cursor="jej
 .marquee::before{content:"";position:absolute;inset:0;background-image:var(--parang-dark);background-size:34px 34px;opacity:.16;pointer-events:none}
 .card::after{content:"";position:absolute;right:0;bottom:0;width:62%;height:58%;background-image:var(--ceplok);opacity:.16;-webkit-mask-image:radial-gradient(circle at 100% 100%,#000,transparent 70%);mask-image:radial-gradient(circle at 100% 100%,#000,transparent 70%);pointer-events:none}
 .strip{position:relative;height:48px;background:var(--deep);border-top:2px solid var(--gold);border-bottom:2px solid var(--gold);box-shadow:inset 0 6px 0 var(--sogan),inset 0 -6px 0 var(--sogan);overflow:hidden}
-.strip::before{content:"";position:absolute;inset:0;background-image:var(--truntum);background-size:40px 40px;animation:drift2 50s linear infinite}
-.strip.ceplok::before{background-image:var(--ceplok);background-size:48px 48px;animation-name:drift3}
-@keyframes drift2{to{background-position:-400px 0}}
-@keyframes drift3{to{background-position:-480px 0}}
+.strip::before{content:"";position:absolute;top:0;bottom:0;left:0;right:-400px;background-image:var(--truntum);background-size:40px 40px;animation:drift2 50s linear infinite;will-change:transform}
+.strip.ceplok::before{right:-480px;background-image:var(--ceplok);background-size:48px 48px;animation-name:drift3}
+@keyframes drift2{to{transform:translate3d(-400px,0,0)}}
+@keyframes drift3{to{transform:translate3d(-480px,0,0)}}
 
 /* ===== sambutan untuk peserta ===== */
 .sambutan{position:relative;overflow:hidden;background:radial-gradient(900px 520px at 12% 20%,rgba(var(--pine-rgb),.5),transparent 70%),linear-gradient(180deg,var(--ink),var(--ink2))}
@@ -458,8 +458,8 @@ html[data-cursor="cincin"] *,html[data-cursor="bintang"] *,html[data-cursor="jej
 .sambutan.anim .letter-band{transform:scaleX(0);transform-origin:left;transition:transform 1.2s cubic-bezier(.2,.8,.2,1) .5s}
 .sambutan.anim .letter-band.ceplok{transform-origin:right}
 .sambutan.anim.in .letter-band{transform:none}
-.letter.split .w{display:inline-block;opacity:0;transform:translateY(.6em);filter:blur(3px);transition:opacity .6s ease var(--d),transform .7s cubic-bezier(.2,.8,.2,1) var(--d),filter .6s ease var(--d)}
-.sambutan.in .letter.split .w{opacity:1;transform:none;filter:none}
+.letter.split .w{display:inline-block;opacity:0;transform:translateY(.6em);transition:opacity .6s ease var(--d),transform .7s cubic-bezier(.2,.8,.2,1) var(--d);will-change:opacity,transform}
+.sambutan.in .letter.split .w{opacity:1;transform:none}
 .sambutan.anim .stage:not(.on){opacity:0;transform:translateY(40px) scale(.92)}
 .sambutan.anim .sk-layer{transform:translateY(60px);opacity:0;transition:transform 1.6s cubic-bezier(.2,.8,.2,1),opacity 1.4s ease}
 .sambutan.anim .sk-layer.far{transition-delay:.2s}
@@ -469,12 +469,15 @@ html[data-cursor="cincin"] *,html[data-cursor="bintang"] *,html[data-cursor="jej
 .sambutan.anim.in .sk-layer.near{opacity:.19}
 @media (prefers-reduced-motion:reduce){
   .sambutan.anim .samb-head,.sambutan.anim .letter,.sambutan.anim .stage:not(.on){opacity:1;transform:none}
-  .letter.split .w{opacity:1;transform:none;filter:none}
+  .letter.split .w{opacity:1;transform:none}
   .sambutan.anim .letter-band{transform:none}
   .joglo .sk-layer{animation:none;transform:none;opacity:var(--o,.1)}
   .sambutan.anim .sk-layer{transform:none}
   .sambutan.anim .sk-layer.far{opacity:.10}.sambutan.anim .sk-layer.near{opacity:.19}
 }
+
+/* hemat tenaga: animasi berhenti ketika bagian di luar layar */
+.off,.off *,.off::before,.off::after,.off *::before,.off *::after{animation-play-state:paused!important}
 
 /* ===== responsif (gabungan) ===== */
 @media (max-width:860px){
@@ -515,13 +518,13 @@ html[data-cursor="cincin"] *,html[data-cursor="bintang"] *,html[data-cursor="jej
         <circle cx="200" cy="200" r="150" stroke-opacity=".5"/>
         <circle cx="200" cy="200" r="190" stroke-opacity=".25"/>
       </g>
-      <g class="inner" stroke="#BFE9D6" stroke-opacity=".7">
+    </svg>
+    <svg viewBox="0 0 400 400" fill="none" stroke="#BFE9D6" stroke-opacity=".7" stroke-width="1.2" class="inner-svg">
         <rect x="90" y="90" width="220" height="220"/>
         <rect x="90" y="90" width="220" height="220" transform="rotate(45 200 200)"/>
         <circle cx="200" cy="200" r="70"/>
-        <circle cx="200" cy="200" r="35" stroke="#E8B34A"/>
-      </g>
-    </svg>
+        <circle cx="200" cy="200" r="35" stroke="#E8B34A" stroke-opacity="1"/>
+      </svg>
   </div>
 
   <div class="hero-inner">
@@ -828,7 +831,12 @@ html[data-cursor="cincin"] *,html[data-cursor="bintang"] *,html[data-cursor="jej
     topBtn.classList.toggle('show', h.scrollTop > 600);
     revealVisible();
   }
-  window.addEventListener('scroll', onScroll, {passive:true});
+  var scrollTick = false;
+  window.addEventListener('scroll', function(){
+    if(scrollTick) return;
+    scrollTick = true;
+    requestAnimationFrame(function(){ scrollTick = false; onScroll(); });
+  }, {passive:true});
   onScroll();
   topBtn.addEventListener('click', function(){
     window.scrollTo({top:0, behavior: reduce ? 'auto' : 'smooth'});
@@ -976,7 +984,7 @@ html[data-cursor="cincin"] *,html[data-cursor="bintang"] *,html[data-cursor="jej
   if(mc && hero && !reduce){
     var mctx = mc.getContext('2d'), MW = 0, MH = 0, sil = [], dots = [], met = [], nextAt = 0, mraf = 0;
     var msize = function(){
-      var d = window.devicePixelRatio || 1;
+      var d = Math.min(window.devicePixelRatio || 1, 1.5);
       MW = mc.clientWidth; MH = mc.clientHeight;
       mc.width = MW * d; mc.height = MH * d;
       mctx.setTransform(d, 0, 0, d, 0, 0);
@@ -1002,11 +1010,12 @@ html[data-cursor="cincin"] *,html[data-cursor="bintang"] *,html[data-cursor="jej
       sil.forEach(function(s){
         s.p += s.v;
         var a = .35 + .55 * Math.abs(Math.sin(s.p));
-        mctx.save();
-        mctx.shadowColor = 'rgba(' + rgb + ',.9)'; mctx.shadowBlur = 14;
+        var sr = s.r * (.85 + .15 * Math.sin(s.p));
+        mctx.fillStyle = 'rgba(' + rgb + ',' + (a * .22).toFixed(2) + ')';
+        mctx.beginPath(); mctx.arc(s.x, s.y, sr * 1.5, 0, 6.2832); mctx.fill();
         mctx.fillStyle = 'rgba(' + rgb + ',' + a.toFixed(2) + ')';
-        star8(mctx, s.x, s.y, s.r * (.85 + .15 * Math.sin(s.p)), .22);
-        mctx.fill(); mctx.restore();
+        star8(mctx, s.x, s.y, sr, .22);
+        mctx.fill();
       });
       if(t > nextAt && met.length < 3){
         met.push({x: MW * (.35 + Math.random() * .75), y: -30, vx: -(5 + Math.random() * 3), vy: 2.6 + Math.random() * 2, len: 22 + Math.random() * 16, w: 2 + Math.random() * 1.5, r: 7 + Math.random() * 4});
@@ -1019,10 +1028,10 @@ html[data-cursor="cincin"] *,html[data-cursor="bintang"] *,html[data-cursor="jej
         g.addColorStop(0, 'rgba(' + rgb + ',.95)'); g.addColorStop(1, 'rgba(' + rgb + ',0)');
         mctx.strokeStyle = g; mctx.lineWidth = m.w; mctx.lineCap = 'round';
         mctx.beginPath(); mctx.moveTo(m.x, m.y); mctx.lineTo(tx, ty); mctx.stroke();
-        mctx.save();
-        mctx.shadowColor = 'rgba(' + rgb + ',1)'; mctx.shadowBlur = 16;
+        mctx.fillStyle = 'rgba(' + rgb + ',.28)';
+        mctx.beginPath(); mctx.arc(m.x, m.y, m.r * 1.6, 0, 6.2832); mctx.fill();
         mctx.fillStyle = 'rgba(' + rgb + ',1)';
-        star8(mctx, m.x, m.y, m.r, .3); mctx.fill(); mctx.restore();
+        star8(mctx, m.x, m.y, m.r, .3); mctx.fill();
         return m.x > -160 && m.y < MH + 160;
       });
       mraf = requestAnimationFrame(mdraw);
@@ -1039,6 +1048,15 @@ html[data-cursor="cincin"] *,html[data-cursor="bintang"] *,html[data-cursor="jej
       cancelAnimationFrame(mraf);
       if(!document.hidden){ mraf = requestAnimationFrame(mdraw); }
     });
+  }
+
+
+  /* jeda animasi untuk bagian di luar layar */
+  if('IntersectionObserver' in window){
+    var offIO = new IntersectionObserver(function(es){
+      es.forEach(function(e){ e.target.classList.toggle('off', !e.isIntersecting); });
+    }, {rootMargin:'120px 0px'});
+    document.querySelectorAll('header.hero,section,.strip,.batik-band,.marquee').forEach(function(el){ offIO.observe(el); });
   }
 
   /* tema */
@@ -1234,7 +1252,6 @@ html[data-cursor="cincin"] *,html[data-cursor="bintang"] *,html[data-cursor="jej
     if(r.top < window.innerHeight * .7 && r.bottom > 0) sambReveal();
   }
   var sambTimer = setInterval(sambCheck, 600);
-  window.addEventListener('scroll', sambCheck, {passive:true});
   window.addEventListener('load', sambCheck);
   window.addEventListener('resize', sambCheck);
   setTimeout(sambReveal, 15000);
