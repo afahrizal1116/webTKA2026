@@ -6,7 +6,7 @@
 <title>Olimpiade TKA Nasional 2026 | Al Ikhlas Fest | Ponpes Al Ikhlas Berbah</title>
 <meta name="description" content="Olimpiade TKA Nasional 2026 dan Al Ikhlas Fest, Ponpes Al Ikhlas Berbah. Baca juknis dan pilih Olimpiade tingkat SD/MI atau SMP/MTs.">
 <meta name="theme-color" content="#06231F">
-<script>document.documentElement.classList.add('js');try{var _t=localStorage.getItem('tka26-theme');if(_t)document.documentElement.setAttribute('data-theme',_t);}catch(e){}</script>
+<script>document.documentElement.classList.add('js');try{var _m=window.matchMedia,_l=_m('(max-width:860px)').matches||_m('(pointer:coarse)').matches||(navigator.deviceMemory&&navigator.deviceMemory<=2);if(_l)document.documentElement.classList.add('lite');}catch(e){}try{var _t=localStorage.getItem('tka26-theme');if(_t)document.documentElement.setAttribute('data-theme',_t);}catch(e){}</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Plus+Jakarta+Sans:wght@400;500;600&display=swap" rel="stylesheet">
@@ -52,7 +52,7 @@ nav{
   padding:18px clamp(20px,5vw,64px);
   transition:background .3s,padding .3s;
 }
-nav.solid{background:rgba(var(--ink-rgb),.95);padding-top:12px;padding-bottom:12px;box-shadow:0 1px 0 rgba(var(--mint-rgb),.12)}
+nav.solid{background:rgba(var(--ink-rgb),.98);padding-top:12px;padding-bottom:12px;box-shadow:0 1px 0 rgba(var(--mint-rgb),.12)}
 .brand{font-family:var(--display);font-weight:700;font-size:1.05rem;text-decoration:none;display:flex;align-items:center;gap:10px}
 .brand svg{width:30px;height:30px}
 .links{display:flex;gap:28px;list-style:none}
@@ -458,7 +458,7 @@ html[data-cursor="cincin"] *,html[data-cursor="bintang"] *,html[data-cursor="jej
 .sambutan.anim .letter-band{transform:scaleX(0);transform-origin:left;transition:transform 1.2s cubic-bezier(.2,.8,.2,1) .5s}
 .sambutan.anim .letter-band.ceplok{transform-origin:right}
 .sambutan.anim.in .letter-band{transform:none}
-.letter.split .w{display:inline-block;opacity:0;transform:translateY(.6em);transition:opacity .6s ease var(--d),transform .7s cubic-bezier(.2,.8,.2,1) var(--d);will-change:opacity,transform}
+.letter.split .w{display:inline-block;opacity:0;transform:translateY(.6em);transition:opacity .6s ease var(--d),transform .7s cubic-bezier(.2,.8,.2,1) var(--d)}
 .sambutan.in .letter.split .w{opacity:1;transform:none}
 .sambutan.anim .stage:not(.on){opacity:0;transform:translateY(40px) scale(.92)}
 .sambutan.anim .sk-layer{transform:translateY(60px);opacity:0;transition:transform 1.6s cubic-bezier(.2,.8,.2,1),opacity 1.4s ease}
@@ -478,6 +478,19 @@ html[data-cursor="cincin"] *,html[data-cursor="bintang"] *,html[data-cursor="jej
 
 /* hemat tenaga: animasi berhenti ketika bagian di luar layar */
 .off,.off *,.off::before,.off::after,.off *::before,.off *::after{animation-play-state:paused!important}
+
+/* ===== mode ringan: HP / RAM kecil. Tampilan tetap, beban dikurangi ===== */
+html.lite .orbit,html.lite .t-shadow{animation:none}
+html.lite .tshine{display:none}
+html.lite .star-art .inner-svg{display:none}
+html.lite .star-art svg{animation-duration:260s;will-change:auto}
+html.lite .strip::before,html.lite .batik-band::before{animation:none;will-change:auto}
+html.lite .chip i{animation:none;box-shadow:none}
+html.lite h1 .line:nth-child(3) span{animation:rise 1s .24s cubic-bezier(.2,.8,.2,1) forwards}
+html.lite .sambutan.anim .letter p{opacity:0;transform:translateY(14px);transition:opacity .7s ease calc(.6s + var(--i,0) * .28s),transform .7s ease calc(.6s + var(--i,0) * .28s)}
+html.lite .sambutan.anim.in .letter p{opacity:1;transform:none}
+html.lite .sk-layer,html.lite .star-art{will-change:auto}
+@media (prefers-reduced-motion:reduce){html.lite .sambutan.anim .letter p{opacity:1;transform:none}}
 
 /* ===== responsif (gabungan) ===== */
 @media (max-width:860px){
@@ -982,33 +995,38 @@ html[data-cursor="cincin"] *,html[data-cursor="bintang"] *,html[data-cursor="jej
     c.closePath();
   }
   if(mc && hero && !reduce){
+    var litec = document.documentElement.classList.contains('lite'), lastT = 0, K = 1;
     var mctx = mc.getContext('2d'), MW = 0, MH = 0, sil = [], dots = [], met = [], nextAt = 0, mraf = 0;
     var msize = function(){
-      var d = Math.min(window.devicePixelRatio || 1, 1.5);
+      var d = litec ? 1 : Math.min(window.devicePixelRatio || 1, 1.5);
       MW = mc.clientWidth; MH = mc.clientHeight;
       mc.width = MW * d; mc.height = MH * d;
       mctx.setTransform(d, 0, 0, d, 0, 0);
       dots = [];
-      var nd = Math.min(110, Math.floor(MW * MH / 12000));
+      var nd = Math.min(litec ? 34 : 110, Math.floor(MW * MH / 12000));
       for(var j = 0; j < nd; j++){
         dots.push({x: Math.random() * MW, y: Math.random() * MH, r: Math.random() * 1.4 + .3, p: Math.random() * 6.28, v: Math.random() * .02 + .008});
       }
       sil = [];
-      var n = MW < 700 ? 4 : 7;
+      var n = litec ? 3 : (MW < 700 ? 4 : 7);
       for(var i = 0; i < n; i++){
         sil.push({x: MW * (.04 + Math.random() * .9), y: MH * (.06 + Math.random() * .7), r: 8 + Math.random() * 14, p: Math.random() * 6.28, v: .012 + Math.random() * .014});
       }
     };
     var mdraw = function(t){
+      if(litec){
+        if(t - lastT < 33){ mraf = requestAnimationFrame(mdraw); return; }
+        lastT = t; K = 2;
+      }
       var rgb = window.starRGB || '246,220,155';
       mctx.clearRect(0, 0, MW, MH);
       dots.forEach(function(d){
-        d.p += d.v;
+        d.p += d.v * K;
         mctx.fillStyle = 'rgba(' + rgb + ',' + (.25 + Math.abs(Math.sin(d.p)) * .7).toFixed(2) + ')';
         mctx.beginPath(); mctx.arc(d.x, d.y, d.r, 0, 6.2832); mctx.fill();
       });
       sil.forEach(function(s){
-        s.p += s.v;
+        s.p += s.v * K;
         var a = .35 + .55 * Math.abs(Math.sin(s.p));
         var sr = s.r * (.85 + .15 * Math.sin(s.p));
         mctx.fillStyle = 'rgba(' + rgb + ',' + (a * .22).toFixed(2) + ')';
@@ -1017,12 +1035,12 @@ html[data-cursor="cincin"] *,html[data-cursor="bintang"] *,html[data-cursor="jej
         star8(mctx, s.x, s.y, sr, .22);
         mctx.fill();
       });
-      if(t > nextAt && met.length < 3){
+      if(t > nextAt && met.length < (litec ? 1 : 3)){
         met.push({x: MW * (.35 + Math.random() * .75), y: -30, vx: -(5 + Math.random() * 3), vy: 2.6 + Math.random() * 2, len: 22 + Math.random() * 16, w: 2 + Math.random() * 1.5, r: 7 + Math.random() * 4});
         nextAt = t + 1400 + Math.random() * 2400;
       }
       met = met.filter(function(m){
-        m.x += m.vx; m.y += m.vy;
+        m.x += m.vx * K; m.y += m.vy * K;
         var tx = m.x - m.vx * m.len, ty = m.y - m.vy * m.len;
         var g = mctx.createLinearGradient(m.x, m.y, tx, ty);
         g.addColorStop(0, 'rgba(' + rgb + ',.95)'); g.addColorStop(1, 'rgba(' + rgb + ',0)');
@@ -1174,8 +1192,11 @@ html[data-cursor="cincin"] *,html[data-cursor="bintang"] *,html[data-cursor="jej
   /* sambutan: kata muncul bertahap, piala dan siluet joglo naik saat terlihat */
   var sambEl = document.getElementById('sambutan');
   var letter = document.querySelector('.letter');
+  var lite = document.documentElement.classList.contains('lite');
   if(sambEl && !reduce){
-    if(letter){
+    if(letter && lite){
+      letter.querySelectorAll('p').forEach(function(p, i){ p.style.setProperty('--i', i); });
+    } else if(letter){
       var wn = 0;
       letter.querySelectorAll('p').forEach(function(p){
         var words = p.textContent.trim().split(/\s+/);
@@ -1199,7 +1220,7 @@ html[data-cursor="cincin"] *,html[data-cursor="bintang"] *,html[data-cursor="jej
   var stage = document.getElementById('stage');
   function confetti(){
     if(reduce) return;
-    for(var i = 0; i < 18; i++){
+    for(var i = 0; i < (document.documentElement.classList.contains('lite') ? 9 : 18); i++){
       var el = document.createElement('i');
       el.className = 'cf';
       var a = Math.random() * 6.283, d = 90 + Math.random() * 130, sz = 7 + Math.random() * 10;
