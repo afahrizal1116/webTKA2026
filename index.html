@@ -18,13 +18,10 @@
   --mint:#BFE9D6;
   --gold:#E8B34A;
   --gold-soft:#F6DC9B;
-  --paper:#F3F8F4;
   --text:#E6F3EC;
   --muted:#9CC3B4;
   --ink-rgb:6,35,31;--pine-rgb:18,87,75;--gold-rgb:232,179,74;--mint-rgb:191,233,214;
   --ink2:#082E29;--foot:#041A17;--head:#fff;--sogan:#8A5A2B;--sogan-rgb:138,90,43;
-  --about-text:#0C2B26;--about-head:#0A3A33;--about-lead:#3C5E55;
-  --pillar-bg:#fff;--pillar-bd:#D6E7DD;--pillar-p:#486B61;--ico-bg:#0A3A33;
   --radius:22px;
   --display:'Bricolage Grotesque','Segoe UI',system-ui,sans-serif;
   --body:'Plus Jakarta Sans','Segoe UI',system-ui,sans-serif;
@@ -147,7 +144,11 @@ h2{
 .lead{margin-top:18px;max-width:60ch;color:var(--muted);font-size:1.1rem}
 
 /* about */
-.about{position:relative;overflow:hidden;background:var(--paper);color:var(--about-text)}
+.about{position:relative;overflow:hidden;color:var(--about-text);
+  --about-text:#E6F3EC;--about-head:#fff;--about-lead:#BCD6CB;
+  --pillar-bg:rgba(255,255,255,.06);--pillar-bd:rgba(var(--gold-rgb),.4);--pillar-p:#BCD6CB;--ico-bg:rgba(var(--gold-rgb),.16);
+  padding-block:clamp(110px,13vw,170px);padding-inline:max(34px,6vw);
+  background:radial-gradient(900px 560px at 88% 6%,rgba(30,120,98,.5),transparent 65%),radial-gradient(760px 480px at 4% 96%,rgba(138,90,43,.4),transparent 70%),linear-gradient(180deg,#07241F,#0A2E28 55%,#150F0A)}
 .about h2{color:var(--about-head)}
 .about .lead{color:var(--about-lead)}
 .about-grid{display:grid;grid-template-columns:1.1fr 1fr;gap:clamp(30px,6vw,80px);align-items:center}
@@ -184,7 +185,9 @@ h2{
 .card li svg{flex:none;width:20px;height:20px;margin-top:4px;stroke:var(--gold);fill:none;stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round}
 
 /* steps */
-.steps{background:var(--ink)}
+.steps{position:relative;overflow:hidden;--head:#fff;--muted:#CFE3DA;--gold:#E8B34A;--gold-rgb:232,179,74;--gold-soft:#F6DC9B;
+  padding-bottom:clamp(290px,30vw,380px);
+  background:linear-gradient(180deg,#0B2733 0%,#123F42 38%,#1F5A50 60%,#7B8046 76%,#DDA94B 90%,#F4CB6C 100%)}
 .timeline{position:relative;margin-top:60px;display:grid;gap:30px}
 .timeline::before{content:"";position:absolute;left:31px;top:10px;bottom:10px;width:2px;background:linear-gradient(var(--gold),rgba(var(--gold-rgb),0))}
 .step{position:relative;display:grid;grid-template-columns:64px 1fr;gap:26px;align-items:start}
@@ -266,7 +269,6 @@ footer{
 }
 
 /* ===== batik ringkas ala Jogja: kawung dan parang ===== */
-.about::after{content:"";position:absolute;right:0;top:0;width:min(48vw,540px);height:100%;background-image:var(--about-pat,var(--kawung-dark));opacity:.24;-webkit-mask-image:linear-gradient(90deg,transparent,#000);mask-image:linear-gradient(90deg,transparent,#000);pointer-events:none}
 .about .wrap{position:relative;z-index:1}
 .final::before{content:"";position:absolute;inset:0;background-image:var(--kawung);opacity:.16;-webkit-mask-image:radial-gradient(ellipse at 50% 0%,#000,transparent 75%);mask-image:radial-gradient(ellipse at 50% 0%,#000,transparent 75%);pointer-events:none}
 .final .wrap{position:relative;z-index:1}
@@ -307,26 +309,19 @@ footer{
 [data-theme="gelap"]{
   --ink:#0B0F0E;--ink2:#101615;--deep:#141C1A;--pine:#1E4D43;
   --ink-rgb:11,15,14;--pine-rgb:30,77,67;--foot:#070A09;
-  --text:#E9F1ED;--muted:#93AAA2;--paper:#121917;
-  --about-text:#DCE8E2;--about-head:#fff;--about-lead:#93AAA2;
-  --pillar-bg:#182220;--pillar-bd:#263733;--pillar-p:#A5BBB3;--ico-bg:#0B0F0E;
-  --about-pat:var(--kawung);
+  --text:#E9F1ED;--muted:#93AAA2;
 }
 [data-theme="terang"]{
   color-scheme:light;
   --ink:#F6FAF6;--ink2:#E8F2EB;--deep:#DDEBE2;--pine:#78BEA8;--mint:#135747;--gold:#B7791F;--gold-soft:#7A4F08;
   --ink-rgb:246,250,246;--pine-rgb:120,190,168;--mint-rgb:19,87,71;--gold-rgb:183,121,31;
-  --text:#16332D;--muted:#46665C;--head:#06231F;--foot:#DCE9E1;--paper:#FFFFFF;
-  --pillar-bg:#F3F8F4;--ico-bg:#0A3A33;
+  --text:#16332D;--muted:#46665C;--head:#06231F;--foot:#DCE9E1;
 }
 [data-theme="sogan"]{
   --ink:#26150E;--ink2:#301B12;--deep:#3C2216;--pine:#7A2E2A;--mint:#F1DDB8;--gold:#E0A83C;--gold-soft:#F7DE9C;
   --ink-rgb:38,21,14;--pine-rgb:122,46,42;--mint-rgb:241,221,184;--gold-rgb:224,168,60;--sogan-rgb:224,168,60;
-  --text:#F5E9D3;--muted:#C9AE8A;--head:#FFF8EA;--foot:#1B0E09;--paper:#F7EBD2;
-  --about-text:#3A2417;--about-head:#4A1E1A;--about-lead:#6B4B34;
-  --pillar-bg:#FFF8EA;--pillar-bd:#E4CFA6;--pillar-p:#7A5A41;--ico-bg:#4A1E1A;
+  --text:#F5E9D3;--muted:#C9AE8A;--head:#FFF8EA;--foot:#1B0E09;
 }
-[data-theme="gelap"] .about::after,[data-theme="sogan"] .about::after{opacity:.14}
 [data-theme="terang"] .hero::before,[data-theme="terang"] .final::before{opacity:.22}
 .star-art .inner circle:last-child{stroke:var(--gold)}
 
@@ -383,7 +378,7 @@ html[data-cursor="bintang"] #cur-ring.hot::before{background:var(--gold-soft)}
 html[data-cursor="jejak"] #cur-dot{width:10px;height:10px}
 html[data-cursor="cincin"] *,html[data-cursor="bintang"] *,html[data-cursor="jejak"] *{cursor:none!important}
 @keyframes spinc{to{rotate:360deg}}
-:root{--kawung:url("data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20width='48'%20height='48'%20viewBox='0%200%2048%2048'%20fill='%23E8B34A'%20fill-opacity='.12'%20stroke='%23E8B34A'%20stroke-width='1.6'%3E%3Cellipse%20cx='24'%20cy='12'%20rx='7'%20ry='12'/%3E%3Cellipse%20cx='24'%20cy='36'%20rx='7'%20ry='12'/%3E%3Cellipse%20cx='12'%20cy='24'%20rx='12'%20ry='7'/%3E%3Cellipse%20cx='36'%20cy='24'%20rx='12'%20ry='7'/%3E%3Ccircle%20cx='24'%20cy='24'%20r='2.4'%20fill-opacity='1'/%3E%3Ccircle%20cx='0'%20cy='0'%20r='2'%20fill-opacity='1'/%3E%3Ccircle%20cx='48'%20cy='0'%20r='2'%20fill-opacity='1'/%3E%3Ccircle%20cx='0'%20cy='48'%20r='2'%20fill-opacity='1'/%3E%3Ccircle%20cx='48'%20cy='48'%20r='2'%20fill-opacity='1'/%3E%3C/svg%3E");--kawung-dark:url("data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20width='48'%20height='48'%20viewBox='0%200%2048%2048'%20fill='%2312574B'%20fill-opacity='.12'%20stroke='%2312574B'%20stroke-width='1.6'%3E%3Cellipse%20cx='24'%20cy='12'%20rx='7'%20ry='12'/%3E%3Cellipse%20cx='24'%20cy='36'%20rx='7'%20ry='12'/%3E%3Cellipse%20cx='12'%20cy='24'%20rx='12'%20ry='7'/%3E%3Cellipse%20cx='36'%20cy='24'%20rx='12'%20ry='7'/%3E%3Ccircle%20cx='24'%20cy='24'%20r='2.4'%20fill-opacity='1'/%3E%3Ccircle%20cx='0'%20cy='0'%20r='2'%20fill-opacity='1'/%3E%3Ccircle%20cx='48'%20cy='0'%20r='2'%20fill-opacity='1'/%3E%3Ccircle%20cx='0'%20cy='48'%20r='2'%20fill-opacity='1'/%3E%3Ccircle%20cx='48'%20cy='48'%20r='2'%20fill-opacity='1'/%3E%3C/svg%3E");--parang:url("data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20width='34'%20height='34'%20viewBox='0%200%2034%2034'%20fill='none'%20stroke='%23E8B34A'%20stroke-width='2'%20stroke-linecap='round'%3E%3Cpath%20d='M-6%2040%20Q17%2040%2017%2017%20T40%20-6'/%3E%3Cpath%20d='M-23%2040%20Q0%2040%200%2017%20T23%20-6'/%3E%3Cpath%20d='M11%2040%20Q34%2040%2034%2017%20T57%20-6'/%3E%3Ccircle%20cx='8'%20cy='26'%20r='2'%20fill='%23E8B34A'%20stroke='none'/%3E%3C/svg%3E");--parang-dark:url("data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20width='34'%20height='34'%20viewBox='0%200%2034%2034'%20fill='none'%20stroke='%232A1D00'%20stroke-width='2'%20stroke-linecap='round'%3E%3Cpath%20d='M-6%2040%20Q17%2040%2017%2017%20T40%20-6'/%3E%3Cpath%20d='M-23%2040%20Q0%2040%200%2017%20T23%20-6'/%3E%3Cpath%20d='M11%2040%20Q34%2040%2034%2017%20T57%20-6'/%3E%3Ccircle%20cx='8'%20cy='26'%20r='2'%20fill='%232A1D00'%20stroke='none'/%3E%3C/svg%3E");--truntum:url("data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20width='40'%20height='40'%20viewBox='0%200%2040%2040'%20fill='%23E8B34A'%3E%3Cpolygon%20points='20.0,12.5%2021.1,17.4%2025.3,14.7%2022.6,18.9%2027.5,20.0%2022.6,21.1%2025.3,25.3%2021.1,22.6%2020.0,27.5%2018.9,22.6%2014.7,25.3%2017.4,21.1%2012.5,20.0%2017.4,18.9%2014.7,14.7%2018.9,17.4'/%3E%3Cpolygon%20points='0.0,-5.5%200.8,-1.8%203.9,-3.9%201.8,-0.8%205.5,0.0%201.8,0.8%203.9,3.9%200.8,1.8%200.0,5.5%20-0.8,1.8%20-3.9,3.9%20-1.8,0.8%20-5.5,0.0%20-1.8,-0.8%20-3.9,-3.9%20-0.8,-1.8'/%3E%3Cpolygon%20points='40.0,-5.5%2040.8,-1.8%2043.9,-3.9%2041.8,-0.8%2045.5,0.0%2041.8,0.8%2043.9,3.9%2040.8,1.8%2040.0,5.5%2039.2,1.8%2036.1,3.9%2038.2,0.8%2034.5,0.0%2038.2,-0.8%2036.1,-3.9%2039.2,-1.8'/%3E%3Cpolygon%20points='0.0,34.5%200.8,38.2%203.9,36.1%201.8,39.2%205.5,40.0%201.8,40.8%203.9,43.9%200.8,41.8%200.0,45.5%20-0.8,41.8%20-3.9,43.9%20-1.8,40.8%20-5.5,40.0%20-1.8,39.2%20-3.9,36.1%20-0.8,38.2'/%3E%3Cpolygon%20points='40.0,34.5%2040.8,38.2%2043.9,36.1%2041.8,39.2%2045.5,40.0%2041.8,40.8%2043.9,43.9%2040.8,41.8%2040.0,45.5%2039.2,41.8%2036.1,43.9%2038.2,40.8%2034.5,40.0%2038.2,39.2%2036.1,36.1%2039.2,38.2'/%3E%3Ccircle%20cx='20'%20cy='6'%20r='1.1'/%3E%3Ccircle%20cx='20'%20cy='34'%20r='1.1'/%3E%3Ccircle%20cx='6'%20cy='20'%20r='1.1'/%3E%3Ccircle%20cx='34'%20cy='20'%20r='1.1'/%3E%3C/svg%3E");--ceplok:url("data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20width='48'%20height='48'%20viewBox='0%200%2048%2048'%20fill='none'%20stroke='%23E8B34A'%20stroke-width='1.5'%3E%3Crect%20x='14'%20y='14'%20width='20'%20height='20'%20transform='rotate%2845%2024%2024%29'/%3E%3Crect%20x='19'%20y='19'%20width='10'%20height='10'/%3E%3Ccircle%20cx='0'%20cy='0'%20r='9'/%3E%3Ccircle%20cx='48'%20cy='0'%20r='9'/%3E%3Ccircle%20cx='0'%20cy='48'%20r='9'/%3E%3Ccircle%20cx='48'%20cy='48'%20r='9'/%3E%3Ccircle%20cx='24'%20cy='24'%20r='2'%20fill='%23E8B34A'%20stroke='none'/%3E%3C/svg%3E")}
+:root{--kawung:url("data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20width='48'%20height='48'%20viewBox='0%200%2048%2048'%20fill='%23E8B34A'%20fill-opacity='.12'%20stroke='%23E8B34A'%20stroke-width='1.6'%3E%3Cellipse%20cx='24'%20cy='12'%20rx='7'%20ry='12'/%3E%3Cellipse%20cx='24'%20cy='36'%20rx='7'%20ry='12'/%3E%3Cellipse%20cx='12'%20cy='24'%20rx='12'%20ry='7'/%3E%3Cellipse%20cx='36'%20cy='24'%20rx='12'%20ry='7'/%3E%3Ccircle%20cx='24'%20cy='24'%20r='2.4'%20fill-opacity='1'/%3E%3Ccircle%20cx='0'%20cy='0'%20r='2'%20fill-opacity='1'/%3E%3Ccircle%20cx='48'%20cy='0'%20r='2'%20fill-opacity='1'/%3E%3Ccircle%20cx='0'%20cy='48'%20r='2'%20fill-opacity='1'/%3E%3Ccircle%20cx='48'%20cy='48'%20r='2'%20fill-opacity='1'/%3E%3C/svg%3E");--kawung-dark:url("data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20width='48'%20height='48'%20viewBox='0%200%2048%2048'%20fill='%2312574B'%20fill-opacity='.12'%20stroke='%2312574B'%20stroke-width='1.6'%3E%3Cellipse%20cx='24'%20cy='12'%20rx='7'%20ry='12'/%3E%3Cellipse%20cx='24'%20cy='36'%20rx='7'%20ry='12'/%3E%3Cellipse%20cx='12'%20cy='24'%20rx='12'%20ry='7'/%3E%3Cellipse%20cx='36'%20cy='24'%20rx='12'%20ry='7'/%3E%3Ccircle%20cx='24'%20cy='24'%20r='2.4'%20fill-opacity='1'/%3E%3Ccircle%20cx='0'%20cy='0'%20r='2'%20fill-opacity='1'/%3E%3Ccircle%20cx='48'%20cy='0'%20r='2'%20fill-opacity='1'/%3E%3Ccircle%20cx='0'%20cy='48'%20r='2'%20fill-opacity='1'/%3E%3Ccircle%20cx='48'%20cy='48'%20r='2'%20fill-opacity='1'/%3E%3C/svg%3E");--parang:url("data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20width='34'%20height='34'%20viewBox='0%200%2034%2034'%20fill='none'%20stroke='%23E8B34A'%20stroke-width='2'%20stroke-linecap='round'%3E%3Cpath%20d='M-6%2040%20Q17%2040%2017%2017%20T40%20-6'/%3E%3Cpath%20d='M-23%2040%20Q0%2040%200%2017%20T23%20-6'/%3E%3Cpath%20d='M11%2040%20Q34%2040%2034%2017%20T57%20-6'/%3E%3Ccircle%20cx='8'%20cy='26'%20r='2'%20fill='%23E8B34A'%20stroke='none'/%3E%3C/svg%3E");--parang-dark:url("data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20width='34'%20height='34'%20viewBox='0%200%2034%2034'%20fill='none'%20stroke='%232A1D00'%20stroke-width='2'%20stroke-linecap='round'%3E%3Cpath%20d='M-6%2040%20Q17%2040%2017%2017%20T40%20-6'/%3E%3Cpath%20d='M-23%2040%20Q0%2040%200%2017%20T23%20-6'/%3E%3Cpath%20d='M11%2040%20Q34%2040%2034%2017%20T57%20-6'/%3E%3Ccircle%20cx='8'%20cy='26'%20r='2'%20fill='%232A1D00'%20stroke='none'/%3E%3C/svg%3E");--truntum:url("data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20width='40'%20height='40'%20viewBox='0%200%2040%2040'%20fill='%23E8B34A'%3E%3Cpolygon%20points='20.0,12.5%2021.1,17.4%2025.3,14.7%2022.6,18.9%2027.5,20.0%2022.6,21.1%2025.3,25.3%2021.1,22.6%2020.0,27.5%2018.9,22.6%2014.7,25.3%2017.4,21.1%2012.5,20.0%2017.4,18.9%2014.7,14.7%2018.9,17.4'/%3E%3Cpolygon%20points='0.0,-5.5%200.8,-1.8%203.9,-3.9%201.8,-0.8%205.5,0.0%201.8,0.8%203.9,3.9%200.8,1.8%200.0,5.5%20-0.8,1.8%20-3.9,3.9%20-1.8,0.8%20-5.5,0.0%20-1.8,-0.8%20-3.9,-3.9%20-0.8,-1.8'/%3E%3Cpolygon%20points='40.0,-5.5%2040.8,-1.8%2043.9,-3.9%2041.8,-0.8%2045.5,0.0%2041.8,0.8%2043.9,3.9%2040.8,1.8%2040.0,5.5%2039.2,1.8%2036.1,3.9%2038.2,0.8%2034.5,0.0%2038.2,-0.8%2036.1,-3.9%2039.2,-1.8'/%3E%3Cpolygon%20points='0.0,34.5%200.8,38.2%203.9,36.1%201.8,39.2%205.5,40.0%201.8,40.8%203.9,43.9%200.8,41.8%200.0,45.5%20-0.8,41.8%20-3.9,43.9%20-1.8,40.8%20-5.5,40.0%20-1.8,39.2%20-3.9,36.1%20-0.8,38.2'/%3E%3Cpolygon%20points='40.0,34.5%2040.8,38.2%2043.9,36.1%2041.8,39.2%2045.5,40.0%2041.8,40.8%2043.9,43.9%2040.8,41.8%2040.0,45.5%2039.2,41.8%2036.1,43.9%2038.2,40.8%2034.5,40.0%2038.2,39.2%2036.1,36.1%2039.2,38.2'/%3E%3Ccircle%20cx='20'%20cy='6'%20r='1.1'/%3E%3Ccircle%20cx='20'%20cy='34'%20r='1.1'/%3E%3Ccircle%20cx='6'%20cy='20'%20r='1.1'/%3E%3Ccircle%20cx='34'%20cy='20'%20r='1.1'/%3E%3C/svg%3E");--ceplok:url("data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20width='48'%20height='48'%20viewBox='0%200%2048%2048'%20fill='none'%20stroke='%23E8B34A'%20stroke-width='1.5'%3E%3Crect%20x='14'%20y='14'%20width='20'%20height='20'%20transform='rotate%2845%2024%2024%29'/%3E%3Crect%20x='19'%20y='19'%20width='10'%20height='10'/%3E%3Ccircle%20cx='0'%20cy='0'%20r='9'/%3E%3Ccircle%20cx='48'%20cy='0'%20r='9'/%3E%3Ccircle%20cx='0'%20cy='48'%20r='9'/%3E%3Ccircle%20cx='48'%20cy='48'%20r='9'/%3E%3Ccircle%20cx='24'%20cy='24'%20r='2'%20fill='%23E8B34A'%20stroke='none'/%3E%3C/svg%3E");--bunga:url("data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20width='72'%20height='72'%20viewBox='0%200%2072%2072'%3E%3Cg%20transform='translate%2836%2036%29'%20fill='%23E8B34A'%20fill-opacity='.10'%20stroke='%23E8B34A'%20stroke-width='1.3'%3E%3Cellipse%20rx='5'%20ry='15'/%3E%3Cellipse%20rx='5'%20ry='15'%20transform='rotate%2845%29'/%3E%3Cellipse%20rx='5'%20ry='15'%20transform='rotate%2890%29'/%3E%3Cellipse%20rx='5'%20ry='15'%20transform='rotate%28135%29'/%3E%3Ccircle%20r='3'%20fill-opacity='1'/%3E%3C/g%3E%3Cg%20transform='translate%280%200%29%20scale%28.55%29'%20fill='%23E8B34A'%20fill-opacity='.10'%20stroke='%23E8B34A'%20stroke-width='1.3'%3E%3Cellipse%20rx='5'%20ry='15'/%3E%3Cellipse%20rx='5'%20ry='15'%20transform='rotate%2845%29'/%3E%3Cellipse%20rx='5'%20ry='15'%20transform='rotate%2890%29'/%3E%3Cellipse%20rx='5'%20ry='15'%20transform='rotate%28135%29'/%3E%3Ccircle%20r='3'%20fill-opacity='1'/%3E%3C/g%3E%3Cg%20transform='translate%2872%200%29%20scale%28.55%29'%20fill='%23E8B34A'%20fill-opacity='.10'%20stroke='%23E8B34A'%20stroke-width='1.3'%3E%3Cellipse%20rx='5'%20ry='15'/%3E%3Cellipse%20rx='5'%20ry='15'%20transform='rotate%2845%29'/%3E%3Cellipse%20rx='5'%20ry='15'%20transform='rotate%2890%29'/%3E%3Cellipse%20rx='5'%20ry='15'%20transform='rotate%28135%29'/%3E%3Ccircle%20r='3'%20fill-opacity='1'/%3E%3C/g%3E%3Cg%20transform='translate%280%2072%29%20scale%28.55%29'%20fill='%23E8B34A'%20fill-opacity='.10'%20stroke='%23E8B34A'%20stroke-width='1.3'%3E%3Cellipse%20rx='5'%20ry='15'/%3E%3Cellipse%20rx='5'%20ry='15'%20transform='rotate%2845%29'/%3E%3Cellipse%20rx='5'%20ry='15'%20transform='rotate%2890%29'/%3E%3Cellipse%20rx='5'%20ry='15'%20transform='rotate%28135%29'/%3E%3Ccircle%20r='3'%20fill-opacity='1'/%3E%3C/g%3E%3Cg%20transform='translate%2872%2072%29%20scale%28.55%29'%20fill='%23E8B34A'%20fill-opacity='.10'%20stroke='%23E8B34A'%20stroke-width='1.3'%3E%3Cellipse%20rx='5'%20ry='15'/%3E%3Cellipse%20rx='5'%20ry='15'%20transform='rotate%2845%29'/%3E%3Cellipse%20rx='5'%20ry='15'%20transform='rotate%2890%29'/%3E%3Cellipse%20rx='5'%20ry='15'%20transform='rotate%28135%29'/%3E%3Ccircle%20r='3'%20fill-opacity='1'/%3E%3C/g%3E%3Crect%20x='-2'%20y='-2'%20width='4'%20height='4'%20fill='%23E8B34A'%20transform='translate%2836%200%29%20rotate%2845%29'/%3E%3Crect%20x='-2'%20y='-2'%20width='4'%20height='4'%20fill='%23E8B34A'%20transform='translate%280%2036%29%20rotate%2845%29'/%3E%3Crect%20x='-2'%20y='-2'%20width='4'%20height='4'%20fill='%23E8B34A'%20transform='translate%2872%2036%29%20rotate%2845%29'/%3E%3Crect%20x='-2'%20y='-2'%20width='4'%20height='4'%20fill='%23E8B34A'%20transform='translate%2836%2072%29%20rotate%2845%29'/%3E%3C/svg%3E");--tumpal-up:url("data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20width='36'%20height='20'%20viewBox='0%200%2036%2020'%3E%3Cpath%20fill-rule='evenodd'%20fill='%23E8B34A'%20d='M0%2020L18%200L36%2020ZM9%2020L18%208L27%2020Z'/%3E%3Ccircle%20cx='18'%20cy='15.5'%20r='1.6'%20fill='%23E8B34A'/%3E%3C/svg%3E");--mega:url("data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20width='240'%20height='90'%20viewBox='0%200%20240%2090'%20fill='%23F6DC9B'%20fill-opacity='.07'%20stroke='%23F6DC9B'%20stroke-opacity='.75'%20stroke-width='1.6'%20stroke-linejoin='round'%3E%3Cpath%20d='M0%2070H12C12%2052%2030%2044%2046%2052C50%2030%2084%2024%20104%2040C122%2020%20160%2024%20170%2046C186%2038%20214%2048%20218%2070H240'/%3E%3Cpath%20transform='translate%28120%2070%29%20scale%28.78%29%20translate%28-120%20-70%29'%20d='M0%2070H12C12%2052%2030%2044%2046%2052C50%2030%2084%2024%20104%2040C122%2020%20160%2024%20170%2046C186%2038%20214%2048%20218%2070H240'/%3E%3Cpath%20transform='translate%28120%2070%29%20scale%28.56%29%20translate%28-120%20-70%29'%20d='M0%2070H12C12%2052%2030%2044%2046%2052C50%2030%2084%2024%20104%2040C122%2020%20160%2024%20170%2046C186%2038%20214%2048%20218%2070H240'/%3E%3C/svg%3E")}
 [data-theme="terang"]{--kawung:url("data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20width='48'%20height='48'%20viewBox='0%200%2048%2048'%20fill='%23B7791F'%20fill-opacity='.12'%20stroke='%23B7791F'%20stroke-width='1.6'%3E%3Cellipse%20cx='24'%20cy='12'%20rx='7'%20ry='12'/%3E%3Cellipse%20cx='24'%20cy='36'%20rx='7'%20ry='12'/%3E%3Cellipse%20cx='12'%20cy='24'%20rx='12'%20ry='7'/%3E%3Cellipse%20cx='36'%20cy='24'%20rx='12'%20ry='7'/%3E%3Ccircle%20cx='24'%20cy='24'%20r='2.4'%20fill-opacity='1'/%3E%3Ccircle%20cx='0'%20cy='0'%20r='2'%20fill-opacity='1'/%3E%3Ccircle%20cx='48'%20cy='0'%20r='2'%20fill-opacity='1'/%3E%3Ccircle%20cx='0'%20cy='48'%20r='2'%20fill-opacity='1'/%3E%3Ccircle%20cx='48'%20cy='48'%20r='2'%20fill-opacity='1'/%3E%3C/svg%3E");--parang:url("data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20width='34'%20height='34'%20viewBox='0%200%2034%2034'%20fill='none'%20stroke='%23B7791F'%20stroke-width='2'%20stroke-linecap='round'%3E%3Cpath%20d='M-6%2040%20Q17%2040%2017%2017%20T40%20-6'/%3E%3Cpath%20d='M-23%2040%20Q0%2040%200%2017%20T23%20-6'/%3E%3Cpath%20d='M11%2040%20Q34%2040%2034%2017%20T57%20-6'/%3E%3Ccircle%20cx='8'%20cy='26'%20r='2'%20fill='%23B7791F'%20stroke='none'/%3E%3C/svg%3E");--truntum:url("data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20width='40'%20height='40'%20viewBox='0%200%2040%2040'%20fill='%23B7791F'%3E%3Cpolygon%20points='20.0,12.5%2021.1,17.4%2025.3,14.7%2022.6,18.9%2027.5,20.0%2022.6,21.1%2025.3,25.3%2021.1,22.6%2020.0,27.5%2018.9,22.6%2014.7,25.3%2017.4,21.1%2012.5,20.0%2017.4,18.9%2014.7,14.7%2018.9,17.4'/%3E%3Cpolygon%20points='0.0,-5.5%200.8,-1.8%203.9,-3.9%201.8,-0.8%205.5,0.0%201.8,0.8%203.9,3.9%200.8,1.8%200.0,5.5%20-0.8,1.8%20-3.9,3.9%20-1.8,0.8%20-5.5,0.0%20-1.8,-0.8%20-3.9,-3.9%20-0.8,-1.8'/%3E%3Cpolygon%20points='40.0,-5.5%2040.8,-1.8%2043.9,-3.9%2041.8,-0.8%2045.5,0.0%2041.8,0.8%2043.9,3.9%2040.8,1.8%2040.0,5.5%2039.2,1.8%2036.1,3.9%2038.2,0.8%2034.5,0.0%2038.2,-0.8%2036.1,-3.9%2039.2,-1.8'/%3E%3Cpolygon%20points='0.0,34.5%200.8,38.2%203.9,36.1%201.8,39.2%205.5,40.0%201.8,40.8%203.9,43.9%200.8,41.8%200.0,45.5%20-0.8,41.8%20-3.9,43.9%20-1.8,40.8%20-5.5,40.0%20-1.8,39.2%20-3.9,36.1%20-0.8,38.2'/%3E%3Cpolygon%20points='40.0,34.5%2040.8,38.2%2043.9,36.1%2041.8,39.2%2045.5,40.0%2041.8,40.8%2043.9,43.9%2040.8,41.8%2040.0,45.5%2039.2,41.8%2036.1,43.9%2038.2,40.8%2034.5,40.0%2038.2,39.2%2036.1,36.1%2039.2,38.2'/%3E%3Ccircle%20cx='20'%20cy='6'%20r='1.1'/%3E%3Ccircle%20cx='20'%20cy='34'%20r='1.1'/%3E%3Ccircle%20cx='6'%20cy='20'%20r='1.1'/%3E%3Ccircle%20cx='34'%20cy='20'%20r='1.1'/%3E%3C/svg%3E");--ceplok:url("data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20width='48'%20height='48'%20viewBox='0%200%2048%2048'%20fill='none'%20stroke='%23B7791F'%20stroke-width='1.5'%3E%3Crect%20x='14'%20y='14'%20width='20'%20height='20'%20transform='rotate%2845%2024%2024%29'/%3E%3Crect%20x='19'%20y='19'%20width='10'%20height='10'/%3E%3Ccircle%20cx='0'%20cy='0'%20r='9'/%3E%3Ccircle%20cx='48'%20cy='0'%20r='9'/%3E%3Ccircle%20cx='0'%20cy='48'%20r='9'/%3E%3Ccircle%20cx='48'%20cy='48'%20r='9'/%3E%3Ccircle%20cx='24'%20cy='24'%20r='2'%20fill='%23B7791F'%20stroke='none'/%3E%3C/svg%3E")}
 
 /* ===== batik lebih jelas dan beragam: kawung, parang, truntum, ceplok ===== */
@@ -502,6 +497,64 @@ html.lite .sk-layer,html.lite .star-art{will-change:auto}
   .samb-grid{grid-template-columns:1fr}
   .stage{max-width:340px}
 }
+
+/* ===== Tentang: malam keraton (sekar, tumpal, kunang-kunang) ===== */
+[data-theme="sogan"] .about{background:radial-gradient(900px 560px at 88% 6%,rgba(122,46,42,.5),transparent 65%),radial-gradient(760px 480px at 4% 96%,rgba(224,168,60,.28),transparent 70%),linear-gradient(180deg,#26150E,#34200F 55%,#150C07)}
+.about .sekar{position:absolute;inset:0;overflow:hidden;opacity:.2;pointer-events:none;-webkit-mask-image:radial-gradient(ellipse 72% 62% at 50% 50%,transparent 12%,#000 100%);mask-image:radial-gradient(ellipse 72% 62% at 50% 50%,transparent 12%,#000 100%);transition:opacity 2s ease}
+.about .sekar span{position:absolute;inset:-144px;background-image:var(--bunga);background-size:72px 72px;animation:sekardrift 90s linear infinite;will-change:transform}
+@keyframes sekardrift{to{transform:translate(144px,144px)}}
+.about::after{content:"";position:absolute;left:50%;top:0;width:min(92vw,980px);height:62%;transform:translateX(-50%);background:radial-gradient(ellipse at 50% 0%,rgba(var(--gold-rgb),.22),transparent 70%);pointer-events:none}
+.about .orb{position:absolute;border-radius:50%;pointer-events:none;animation:orbf 20s ease-in-out infinite alternate;transition:opacity 2s ease}
+.about .orb.o1{width:380px;height:380px;left:-110px;top:18%;background:radial-gradient(circle,rgba(var(--gold-rgb),.26),transparent 70%)}
+.about .orb.o2{width:460px;height:460px;right:-140px;bottom:6%;background:radial-gradient(circle,rgba(46,160,128,.3),transparent 70%);animation-delay:-9s}
+@keyframes orbf{to{transform:translate(60px,-40px) scale(1.15)}}
+#kunang{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:0;transition:opacity 2s ease .6s}
+.kframe{position:absolute;inset:clamp(14px,2.6vw,38px) clamp(14px,2.6vw,38px) calc(clamp(14px,2.6vw,38px) + 26px);border:1px solid rgba(var(--gold-rgb),.4);outline:1px solid rgba(var(--gold-rgb),.16);outline-offset:6px;pointer-events:none;z-index:1;transition:opacity 1.4s ease .3s,transform 1.6s cubic-bezier(.2,.8,.2,1) .3s}
+.kframe i{position:absolute;width:10px;height:10px;background:var(--gold);transform:rotate(45deg)}
+.kframe i:nth-child(1){left:-5px;top:-5px}
+.kframe i:nth-child(2){right:-5px;top:-5px}
+.kframe i:nth-child(3){left:-5px;bottom:-5px}
+.kframe i:nth-child(4){right:-5px;bottom:-5px}
+.tumpal{position:absolute;left:0;right:0;bottom:0;height:24px;z-index:2;pointer-events:none;background-image:linear-gradient(var(--gold),var(--gold)),var(--tumpal-up);background-repeat:no-repeat,repeat-x;background-position:0 100%,0 calc(100% - 3px);background-size:100% 3px,36px 20px;transition:transform 1.3s cubic-bezier(.2,.8,.2,1)}
+/* keadaan awal transisi (hanya bila JS siap; aman bila gagal) */
+.about.anim:not(.live) .tumpal{transform:translateY(100%)}
+.about.anim:not(.live) .kframe{opacity:0;transform:scale(1.04)}
+.about.anim:not(.live) .sekar,.about.anim:not(.live) #kunang,.about.anim:not(.live) .orb{opacity:0}
+html.lite .about .sekar span,html.lite .about .orb{animation:none;will-change:auto}
+html.lite .about .orb{display:none}
+@media (prefers-reduced-motion:reduce){.about .sekar span,.about .orb{animation:none}}
+
+/* ===== Langkah: fajar di lereng Merapi (gunung, awan mega mendung, matahari terbit) ===== */
+.steps .wrap{position:relative;z-index:2}
+.dawn-stars{position:absolute;inset:0 0 45% 0;pointer-events:none;background-image:radial-gradient(1.6px 1.6px at 12% 18%,#fff,transparent 60%),radial-gradient(1.2px 1.2px at 28% 42%,#fff,transparent 60%),radial-gradient(1.8px 1.8px at 44% 12%,#FFF3CF,transparent 60%),radial-gradient(1.2px 1.2px at 58% 34%,#fff,transparent 60%),radial-gradient(1.6px 1.6px at 73% 16%,#fff,transparent 60%),radial-gradient(1.2px 1.2px at 86% 38%,#FFF3CF,transparent 60%),radial-gradient(1.4px 1.4px at 93% 10%,#fff,transparent 60%),radial-gradient(1.2px 1.2px at 6% 52%,#fff,transparent 60%)}
+.steps.live .dawn-stars{animation:starin 2s ease both,twk2 5s ease-in-out 2s infinite alternate}
+@keyframes starin{from{opacity:0}to{opacity:.45}}
+@keyframes twk2{from{opacity:.45}to{opacity:1}}
+.sun{position:absolute;left:70%;bottom:clamp(60px,9vw,130px);width:min(48vw,440px);aspect-ratio:1;translate:-50% 0;border-radius:50%;pointer-events:none;background:radial-gradient(circle,#FFF6D8 0%,#FBE29B 18%,rgba(244,203,108,.6) 38%,rgba(244,203,108,0) 68%);animation:sunpulse 8s ease-in-out infinite alternate;transition:translate 2.2s cubic-bezier(.2,.8,.2,1),opacity 2s ease}
+@keyframes sunpulse{to{transform:scale(1.08)}}
+.cloud{position:absolute;left:0;pointer-events:none;background-image:var(--mega);background-repeat:repeat-x;transition:opacity 2s ease;will-change:transform}
+.cloud.c1{bottom:clamp(190px,24vw,330px);width:calc(100% + 240px);height:90px;background-size:240px 90px;opacity:.55;animation:cloudmove1 80s linear infinite}
+.cloud.c2{bottom:clamp(100px,13vw,190px);width:calc(100% + 320px);height:120px;background-size:320px 120px;opacity:.5;animation:cloudmove2 120s linear infinite reverse}
+@keyframes cloudmove1{to{transform:translateX(-240px)}}
+@keyframes cloudmove2{to{transform:translateX(-320px)}}
+.mtn{position:absolute;left:0;bottom:-1px;width:100%;height:clamp(190px,27vw,350px);pointer-events:none;display:block;transition:translate 1.8s cubic-bezier(.2,.8,.2,1)}
+.mtn.m1{fill:var(--pine);opacity:.6;transform:translateY(calc((var(--p,.5) - .5) * -26px))}
+.mtn.m2{fill:var(--deep);opacity:.88;transform:translateY(calc((var(--p,.5) - .5) * -14px));transition-delay:.25s}
+.mtn.m3{fill:var(--deep);transition-delay:.5s}
+.mtn .smoke{fill:#fff;transform-box:fill-box;transform-origin:center;opacity:0;animation:smoke 7s ease-out infinite}
+@keyframes smoke{0%{transform:translateY(0) scale(.6);opacity:0}20%{opacity:.35}100%{transform:translateY(-70px) scale(2.2);opacity:0}}
+.steps .timeline::before{transform-origin:top;transition:transform 1.8s cubic-bezier(.2,.8,.2,1) .4s}
+.steps .num{box-shadow:0 0 0 6px rgba(var(--gold-rgb),.2),0 10px 28px -6px rgba(232,179,74,.65)}
+.steps .step .body{padding:14px 22px 16px;background:rgba(6,35,31,.42);border:1px solid rgba(var(--gold-rgb),.28);border-radius:16px}
+/* keadaan awal transisi (hanya bila JS siap; aman bila gagal) */
+.steps.anim:not(.live) .dawn-stars,.steps.anim:not(.live) .cloud{opacity:0}
+.steps.anim:not(.live) .sun{translate:-50% 45%;opacity:0}
+.steps.anim:not(.live) .mtn.m1{translate:0 35%}
+.steps.anim:not(.live) .mtn.m2{translate:0 55%}
+.steps.anim:not(.live) .mtn.m3{translate:0 80%}
+.steps.anim:not(.live) .timeline::before{transform:scaleY(0)}
+html.lite .steps .cloud,html.lite .steps .sun,html.lite .steps.live .dawn-stars{animation:none;will-change:auto}
+html.lite .steps .mtn .smoke{display:none}
 </style>
 </head>
 <body>
@@ -636,6 +689,11 @@ html.lite .sk-layer,html.lite .star-art{will-change:auto}
 <div class="strip" aria-hidden="true"></div>
 
 <section class="about" id="tentang">
+  <div class="sekar" aria-hidden="true"><span></span></div>
+  <span class="orb o1" aria-hidden="true"></span>
+  <span class="orb o2" aria-hidden="true"></span>
+  <canvas id="kunang" aria-hidden="true"></canvas>
+  <div class="kframe" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
   <div class="wrap about-grid">
     <div class="rv">
       <h2>Satu panggung untuk ilmu dan karya generasi muda</h2>
@@ -656,6 +714,7 @@ html.lite .sk-layer,html.lite .star-art{will-change:auto}
       </div>
     </div>
   </div>
+  <div class="tumpal" aria-hidden="true"></div>
 </section>
 
 
@@ -692,6 +751,13 @@ html.lite .sk-layer,html.lite .star-art{will-change:auto}
 </section>
 
 <section class="steps" id="langkah">
+  <div class="dawn-stars" aria-hidden="true"></div>
+  <div class="sun" aria-hidden="true"></div>
+  <div class="cloud c1" aria-hidden="true"></div>
+  <svg class="mtn m1" viewBox="0 0 1440 320" preserveAspectRatio="xMidYMax slice" aria-hidden="true"><path d="M0 230C120 200 200 170 300 190C400 210 470 150 570 160C680 172 720 215 820 200C930 184 990 120 1100 150C1200 178 1300 210 1440 190V320H0Z"/></svg>
+  <div class="cloud c2" aria-hidden="true"></div>
+  <svg class="mtn m2" viewBox="0 0 1440 320" preserveAspectRatio="xMidYMax slice" aria-hidden="true"><path d="M0 270C140 250 240 235 340 255C450 276 520 238 620 232C760 225 820 190 920 150C960 132 985 118 1010 112C1035 118 1060 132 1100 165C1190 235 1290 250 1440 235V320H0Z"/><circle class="smoke" cx="1010" cy="108" r="9" style="animation-delay:0s"/><circle class="smoke" cx="1010" cy="108" r="9" style="animation-delay:2.3s"/><circle class="smoke" cx="1010" cy="108" r="9" style="animation-delay:4.6s"/></svg>
+  <svg class="mtn m3" viewBox="0 0 1440 320" preserveAspectRatio="xMidYMax slice" aria-hidden="true"><path d="M0 300C160 285 300 270 460 285C620 300 760 268 920 280C1080 292 1240 270 1440 288V320H0Z"/></svg>
   <div class="wrap">
     <div class="rv">
       <h2>Tiga langkah menyiapkan diri</h2>
@@ -1287,6 +1353,116 @@ html.lite .sk-layer,html.lite .star-art{will-change:auto}
   window.addEventListener('resize', sambCheck);
   setTimeout(sambReveal, 15000);
   sambCheck();
+
+  /* Tentang: adegan malam keraton, kunang-kunang berjalan */
+  var aboutEl = document.getElementById('tentang');
+  var kc = document.getElementById('kunang');
+  var liteK = document.documentElement.classList.contains('lite');
+  function sceneReveal(el){
+    if(!reduce) el.classList.add('anim');
+    var timer = 0;
+    function live(){
+      if(el.classList.contains('live')) return;
+      el.classList.add('live');
+      clearInterval(timer);
+      window.removeEventListener('scroll', check);
+    }
+    function check(){
+      var r = el.getBoundingClientRect();
+      if(r.top < window.innerHeight * .75 && r.bottom > 0) live();
+    }
+    timer = setInterval(check, 600);
+    window.addEventListener('scroll', check, {passive:true});
+    window.addEventListener('load', check);
+    window.addEventListener('resize', check);
+    setTimeout(live, 15000);
+    check();
+  }
+  if(aboutEl) sceneReveal(aboutEl);
+
+  /* Langkah: fajar di lereng Merapi, gunung bergeser halus saat digulir */
+  var stepsEl = document.getElementById('langkah');
+  if(stepsEl){
+    sceneReveal(stepsEl);
+    if(!liteK && !reduce){
+      var pTick = false;
+      var pUpdate = function(){
+        pTick = false;
+        var r = stepsEl.getBoundingClientRect();
+        if(r.bottom < 0 || r.top > window.innerHeight) return;
+        var p = (window.innerHeight - r.top) / (window.innerHeight + r.height);
+        stepsEl.style.setProperty('--p', Math.max(0, Math.min(1, p)).toFixed(3));
+      };
+      window.addEventListener('scroll', function(){ if(!pTick){ pTick = true; requestAnimationFrame(pUpdate); } }, {passive:true});
+      pUpdate();
+    }
+  }
+  if(kc && aboutEl){
+    var kx = kc.getContext('2d'), KW = 0, KH = 0, flies = [], kraf = 0, kon = false, kvis = false, kLast = 0;
+    var kcols = ['214,255,120', '255,214,120', '190,255,160'];
+    var ksize = function(){
+      var d = liteK ? .75 : Math.min(window.devicePixelRatio || 1, 1.5);
+      KW = kc.clientWidth; KH = kc.clientHeight;
+      kc.width = Math.round(KW * d); kc.height = Math.round(KH * d);
+      kx.setTransform(d, 0, 0, d, 0, 0);
+      var n = Math.max(liteK ? 6 : 14, Math.min(liteK ? 10 : 38, Math.floor(KW * KH / 34000)));
+      flies = [];
+      for(var i = 0; i < n; i++){
+        flies.push({x: Math.random() * KW, y: Math.random() * KH, a: Math.random() * 6.283, sp: .22 + Math.random() * .5,
+          wob: Math.random() * 6.283, ws: .008 + Math.random() * .02, ph: Math.random() * 6.283, fl: .02 + Math.random() * .035,
+          r: 1.5 + Math.random() * 1.7, c: kcols[i % 3], tr: []});
+      }
+    };
+    var kdraw = function(t, once){
+      if(!once && liteK && t - kLast < 33){ kraf = requestAnimationFrame(kdraw); return; }
+      kLast = t;
+      kx.clearRect(0, 0, KW, KH);
+      for(var i = 0; i < flies.length; i++){
+        var f = flies[i];
+        if(!once){
+          f.wob += f.ws; f.a += Math.sin(f.wob) * .07;
+          f.x += Math.cos(f.a) * f.sp; f.y += Math.sin(f.a) * f.sp - .05;
+          if(f.x < -30) f.x = KW + 30; else if(f.x > KW + 30) f.x = -30;
+          if(f.y < -30) f.y = KH + 30; else if(f.y > KH + 30) f.y = -30;
+          f.ph += f.fl;
+          if(!liteK){ f.tr.push(f.x, f.y); if(f.tr.length > 28) f.tr.splice(0, 2); }
+        }
+        var v = Math.pow((Math.sin(f.ph) + 1) / 2, 2), a = .22 + .78 * v;
+        for(var j = 0; j < f.tr.length; j += 2){
+          var k = j / f.tr.length;
+          kx.fillStyle = 'rgba(' + f.c + ',' + (k * .2 * a).toFixed(3) + ')';
+          kx.beginPath(); kx.arc(f.tr[j], f.tr[j + 1], f.r * k * .8, 0, 6.2832); kx.fill();
+        }
+        if(liteK){
+          kx.fillStyle = 'rgba(' + f.c + ',' + (.18 * a).toFixed(2) + ')';
+          kx.beginPath(); kx.arc(f.x, f.y, f.r * 5, 0, 6.2832); kx.fill();
+          kx.fillStyle = 'rgba(255,255,225,' + (.5 + .5 * v).toFixed(2) + ')';
+          kx.beginPath(); kx.arc(f.x, f.y, f.r * .8, 0, 6.2832); kx.fill();
+        } else {
+          var g = kx.createRadialGradient(f.x, f.y, 0, f.x, f.y, f.r * 9);
+          g.addColorStop(0, 'rgba(' + f.c + ',' + (.85 * a).toFixed(2) + ')');
+          g.addColorStop(.28, 'rgba(' + f.c + ',' + (.26 * a).toFixed(2) + ')');
+          g.addColorStop(1, 'rgba(' + f.c + ',0)');
+          kx.fillStyle = g; kx.beginPath(); kx.arc(f.x, f.y, f.r * 9, 0, 6.2832); kx.fill();
+          kx.fillStyle = 'rgba(255,255,230,' + (.55 + .45 * v).toFixed(2) + ')';
+          kx.beginPath(); kx.arc(f.x, f.y, f.r * .75, 0, 6.2832); kx.fill();
+        }
+      }
+      if(!once) kraf = requestAnimationFrame(kdraw);
+    };
+    var kgo = function(){
+      var want = kvis && !document.hidden && !reduce;
+      if(want && !kon){ kon = true; kraf = requestAnimationFrame(kdraw); }
+      else if(!want && kon){ kon = false; cancelAnimationFrame(kraf); }
+    };
+    ksize();
+    window.addEventListener('resize', function(){ ksize(); if(reduce) kdraw(0, true); });
+    if(reduce){ kdraw(0, true); }
+    else if('IntersectionObserver' in window){
+      new IntersectionObserver(function(es){ kvis = es[0].isIntersecting; kgo(); }, {threshold:0}).observe(aboutEl);
+    } else { kvis = true; kgo(); }
+    document.addEventListener('visibilitychange', kgo);
+  }
 })();
 </script>
 </body>
